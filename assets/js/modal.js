@@ -68,3 +68,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2500);
   });
 });
+
+
+function openPopup(popup) {
+  popup.classList.add("show");
+  document.body.classList.add("popup-open");
+}
+
+function closePopup(popup) {
+  popup.classList.remove("show");
+  document.body.classList.remove("popup-open");
+}

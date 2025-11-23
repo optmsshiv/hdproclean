@@ -1,4 +1,4 @@
-/* POPUPS & MODAL */
+/* POPUPS & MODAL BASE */
 .modal,
 .popup-overlay,
 .success-overlay {
@@ -11,7 +11,6 @@
     z-index: 999999;
     opacity: 0;
     pointer-events: none;
-    /* prevent click when hidden */
     transition: opacity 0.3s ease;
 }
 
@@ -23,10 +22,8 @@
     pointer-events: auto;
 }
 
-/* Content animations */
-.modal-content,
-.popup-box,
-.success-box {
+/* SERVICE MODAL: zoom + fade */
+.modal-content {
     background: #fff;
     padding: 2rem;
     border-radius: 12px;
@@ -39,10 +36,49 @@
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.modal.show .modal-content,
-.popup-overlay.show .popup-box,
-.success-overlay.show .success-box {
+.modal.show .modal-content {
     transform: scale(1);
+    opacity: 1;
+}
+
+/* BOOKING POPUP: slide-in from bottom + fade */
+.popup-box {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 90%;
+    text-align: left;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transform: translateY(50px);
+    /* start below */
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.popup-overlay.show .popup-box {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* SUCCESS POPUP: slide-in from top + fade */
+.success-box {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    transform: translateY(-50px);
+    /* start above */
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.success-overlay.show .success-box {
+    transform: translateY(0);
     opacity: 1;
 }
 
@@ -56,64 +92,14 @@
     cursor: pointer;
 }
 
-/* Buttons */
-.modal-btn,
-.popup-btn {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: .7rem 1.5rem;
-    background: #0b2540;
-    color: #fff;
-    border-radius: 8px;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Success icon */
-.success-icon {
-    font-size: 40px;
-    color: green;
-    margin-bottom: 1rem;
-}
-
-/* Scroll lock */
-body.popup-open {
-    overflow: hidden;
-}
-
-.popup-box {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 12px;
-    max-width: 500px;
-    width: 90%;
-    text-align: left;
-    position: relative;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    transform: scale(0.8);
-    opacity: 0;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.popup-overlay.show .popup-box {
-    transform: scale(1);
-    opacity: 1;
-}
-
-.popup-close {
-    position: absolute;
-    top: 12px;
-    right: 15px;
-    font-size: 28px;
-    cursor: pointer;
-}
-
+/* Headings */
 h2 {
     text-align: center;
     margin-bottom: 1rem;
     color: #0b2540;
 }
 
+/* Form styling */
 .form-group {
     margin-bottom: 1rem;
 }
@@ -142,19 +128,37 @@ h2 {
     box-shadow: 0 0 5px rgba(11, 37, 64, 0.3);
 }
 
-.popup-btn {
-    display: block;
-    width: 100%;
-    padding: 0.7rem;
+/* Buttons */
+.modal-btn,
+.popup-btn,
+button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
     background: #0b2540;
     color: #fff;
-    border: none;
     border-radius: 8px;
+    border: none;
     font-size: 1rem;
     cursor: pointer;
-    transition: background 0.3s ease;
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
-.popup-btn:hover {
+.modal-btn:hover,
+.popup-btn:hover,
+button:hover {
     background: #09203a;
+}
+
+/* Success icon */
+.success-icon {
+    font-size: 40px;
+    color: green;
+    margin-bottom: 1rem;
+}
+
+/* Scroll lock */
+body.popup-open {
+    overflow: hidden;
 }
