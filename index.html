@@ -81,7 +81,7 @@
         <div class="hero-content">
             <h1>Spotless Spaces, Happy Faces</h1>
             <p>Your trusted partner for professional home and office cleaning services.</p>
-            <a href="#booking" id="contact" class="hero-btn">Get a Free Quote</a>
+            <a href="#contact" class="hero-btn">Get a Free Quote</a>
             <!---
             <h1>Professional Home & Office Cleaning</h1>
             <p>Fast • Affordable • Trusted</p>-->
@@ -189,7 +189,7 @@
     </section> -->
 
     <!--how we work premium -->
-    <section class="how-we-work premium-hww">
+    <section class="premium-hww">
         <h2 class="section-title">How We Work</h2>
         <p class="section-subtitle">A clean, professional 4-step process designed for quality</p>
 
@@ -253,7 +253,8 @@
                 <img loading="lazy" src="/assets/img/air-duct-cleaning.jpg" alt="Air Duct Cleaning Service">
                 <h3>Air Duct Cleaning Service</h3>
                 <p>Coil, blower & antibacterial wash.</p>
-                <button class="view-details" data-title="Air Duct Cleaning Service"
+                <button class="view-details" 
+                    data-title="Air Duct Cleaning Service"
                     data-desc="Air duct cleaning includes coil cleaning, blower wash, antibacterial treatment, and drain cleaning.">
                     View Details
                 </button>
@@ -383,8 +384,7 @@
     </section>-->
 
     <!--form secion -->
-
-    <section class="contact-section light">
+    <section id="contact" class="contact-section light">
         <div class="contact-wrapper">
 
             <!-- Left: Form -->
@@ -393,7 +393,6 @@
                 <p>Fill out the form and our team will contact you shortly.</p>
 
                 <form>
-
                     <!-- Row 1: Name + Phone -->
                     <div class="row-2">
                         <div class="input-group">
@@ -504,25 +503,24 @@
 
 
     <!-- BOOK NOW BUTTON -->
-    <a href="#contact" id="contact" class="book-now">Get a quote</a>
+    <a id="contact" class="book-now">Get a quote</a>
 
     <!-- SERVICE MODAL -->
+    <!-- SERVICE MODAL (Single modal reused for all cards) -->
     <div id="serviceModal" class="modal">
         <div class="modal-content">
             <span class="modal-close">&times;</span>
             <h2 id="modalTitle"></h2>
             <p id="modalDesc"></p>
-            <a href="#contact" class="modal-btn">Book This Service</a>
+            <a href="#" class="modal-btn">Book This Service</a>
         </div>
     </div>
-
+    
     <!-- BOOKING POPUP -->
     <div id="bookingPopup" class="popup-overlay">
-        <div class="popup-box animate-popup">
+        <div class="popup-box">
             <span class="popup-close" id="closeBooking">&times;</span>
-
             <h2>Book a Service</h2>
-
             <form id="bookingForm">
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="text" name="phone" placeholder="Phone Number" required>
@@ -532,10 +530,10 @@
             </form>
         </div>
     </div>
-
+    
     <!-- SUCCESS POPUP -->
     <div id="successPopup" class="success-overlay">
-        <div class="success-box animate-success">
+        <div class="success-box">
             <div class="success-icon">✔</div>
             <h3>Booking Successful!</h3>
             <p>We will contact you shortly.</p>

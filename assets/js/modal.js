@@ -1,52 +1,65 @@
-// ==== MODAL POPUP ====
-const modal = document.getElementById("serviceModal");
-const modalTitle = document.getElementById("modalTitle");
-const modalDesc = document.getElementById("modalDesc");
-const closeModal = document.querySelector(".modal-close");
+document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
 
-document.querySelectorAll(".view-details").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    modalTitle.textContent = btn.dataset.title;
-    modalDesc.textContent = btn.dataset.desc;
+  // ===== SERVICE MODAL =====
+  const modal = document.getElementById("serviceModal");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalDesc = document.getElementById("modalDesc");
+  const closeModal = document.querySelector(".modal-close");
+  const modalBtn = document.querySelector(".modal-btn");
 
-    modal.classList.add("show");
+  document.querySelectorAll(".view-details").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      modalTitle.textContent = btn.dataset.title;
+      modalDesc.textContent = btn.dataset.desc;
+      modal.classList.add("show");
+      body.classList.add("popup-open");
+    });
+  });
+
+  const closeModalFunc = () => {
+    modal.classList.remove("show");
+    body.classList.remove("popup-open");
+  };
+
+  closeModal.addEventListener("click", closeModalFunc);
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModalFunc();
+  });
+
+  // ===== BOOKING POPUP =====
+  const bookingPopup = document.getElementById("bookingPopup");
+  const closeBooking = document.getElementById("closeBooking");
+
+  modalBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    closeModalFunc();
+    bookingPopup.classList.add("show");
+    body.classList.add("popup-open");
+  });
+
+  const closeBookingFunc = () => {
+    bookingPopup.classList.remove("show");
+    body.classList.remove("popup-open");
+  };
+
+  closeBooking.addEventListener("click", closeBookingFunc);
+  bookingPopup.addEventListener("click", (e) => {
+    if (e.target === bookingPopup) closeBookingFunc();
+  });
+
+  // ===== SUCCESS POPUP =====
+  const successPopup = document.getElementById("successPopup");
+  const bookingForm = document.getElementById("bookingForm");
+
+  bookingForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    closeBookingFunc();
+    successPopup.classList.add("show");
+    setTimeout(() => {
+      successPopup.classList.remove("show");
+      body.classList.remove("popup-open");
+      bookingForm.reset();
+    }, 2500);
   });
 });
-
-closeModal.addEventListener("click", () => {
-  modal.classList.remove("show");
-});
-
-modal.addEventListener("click", (e) => {
-  if (e.target === modal) modal.classList.remove("show");
-});
-
- // Ripple effect for "Get a quote" button
-const button = document.querySelector(".book-now");
-
-button.addEventListener("click", function (e) {
-  const ripple = document.createElement("span");
-  ripple.classList.add("ripple");
-
-  const rect = button.getBoundingClientRect();
-  ripple.style.left = e.clientX - rect.left + "px";
-  ripple.style.top = e.clientY - rect.top + "px";
-
-  button.appendChild(ripple);
-
-  ripple.addEventListener("animationend", () => {
-    ripple.remove();
-  });
-});
-
-const navbar = document.getElementById("navbar");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 50) {
-    navbar.classList.add("shrink");
-  } else {
-    navbar.classList.remove("shrink");
-  }
-});
-
-
