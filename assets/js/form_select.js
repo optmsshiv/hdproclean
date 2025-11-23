@@ -1,25 +1,18 @@
-// Wait for the DOM
 document.addEventListener("DOMContentLoaded", () => {
-  // --- Elements ---
-  const contactForm = document.querySelector("#contactForm"); // FIXED
+  const contactForm = document.querySelector("#contactForm");
   const bookingForm = document.getElementById("bookingForm");
-  const bookingPopup = document.getElementById("bookingPopup");
-  const successPopup = document.getElementById("successPopup");
-  const closeBooking = document.getElementById("closeBooking");
 
   const contactBtn = document.getElementById("contactSubmitBtn");
   const contactSuccess = document.getElementById("contactSuccessMessage");
 
-  // Close booking popup
-  if (closeBooking) {
-    closeBooking.addEventListener("click", () => {
-      bookingPopup.style.display = "none";
-    });
-  }
-
   function ajaxSubmit(form, formType) {
+    if (!form) return;
+
+    console.log("AJAX attached to", formType);
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      console.log("FORM SUBMITTED VIA AJAX");
 
       if (formType === "contact") {
         contactBtn.classList.add("loading");
@@ -35,6 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
       })
         .then((res) => res.json())
         .then((data) => {
+          console.log("SERVER RESPONSE:", data);
+
           if (formType === "contact") {
             contactBtn.classList.remove("loading");
             contactBtn.disabled = false;
@@ -42,31 +37,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
           if (data.status === "success") {
             form.reset();
+            contactSuccess.innerHTML =
+              "<strong>Thank you!</strong> Your message has been submitted.";
+            contactSuccess.style.display = "block";
 
-            if (formType === "contact") {
-              contactSuccess.innerHTML =
-                "<strong>Thank you!</strong> Your message has been submitted. Our team will contact you shortly.";
-              contactSuccess.style.display = "block";
-
-              setTimeout(() => {
-                contactSuccess.style.display = "none";
-              }, 4000);
-            }
-          } else {
-            alert(data.message);
+            setTimeout(() => {
+              contactSuccess.style.display = "none";
+            }, 4000);
           }
         })
         .catch((err) => {
-          alert("Something went wrong. Try again.");
-
-          if (formType === "contact") {
-            contactBtn.classList.remove("loading");
-            contactBtn.disabled = false;
-          }
+          console.log("ERROR:", err);
         });
     });
   }
 
-  if (contactForm) ajaxSubmit(contactForm, "contact");
-  if (bookingForm) ajaxSubmit(bookingForm, "booking");
+  ajaxSubmit(contactForm, "contact");
+  ajaxSubmit(bookingForm, "booking");
 });
