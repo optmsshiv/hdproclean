@@ -56,26 +56,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Handle form submission
   const successPopup = document.getElementById("successPopup");
+
+  // Handle form submission (SEND TO DATABASE)
   bookingForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    closeBookingFunc();
-    successPopup.classList.add("show");
-    body.classList.add("popup-open");
-    setTimeout(() => {
-      successPopup.classList.remove("show");
-      body.classList.remove("popup-open");
-      bookingForm.reset();
-    }, 2500);
+
+    let formData = new FormData(bookingForm);
+
+    fetch("/backened/config/db.php", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === "success") {
+          closeBookingFunc();
+
+          successPopup.classList.add("show");
+          body.classList.add("popup-open");
+
+          // Clear form after success
+          setTimeout(() => {
+            successPopup.classList.remove("show");
+            body.classList.remove("popup-open");
+            bookingForm.reset();
+          }, 2500);
+        } else {
+          alert("Error: " + data.message);
+        }
+      })
+      .catch((err) => {
+        alert("Network error: " + err);
+      });
   });
 });
 
-
-function openPopup(popup) {
-  popup.classList.add("show");
-  document.body.classList.add("popup-open");
-}
-
-function closePopup(popup) {
-  popup.classList.remove("show");
-  document.body.classList.remove("popup-open");
-}
+// Close success popup after 3 seconds
+const successPopup = document.getElementById("successPopup");
+setTimeout(() => {
+  successPopup.classList.remove("show");
+}, 3000);
