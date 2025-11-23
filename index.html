@@ -5,12 +5,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>HDProClean — Professional Home & Office Cleaning Services</title>
+    <title>HD Pro Cleaning — Professional Home & Office Cleaning Services</title>
     <meta name="description"
-        content="HDProClean provides expert home cleaning, kitchen deep cleaning, bathroom sanitization, office cleaning & AC deep cleaning services." />
+        content="HD Pro Cleaning provides expert home cleaning, kitchen deep cleaning, bathroom sanitization, office cleaning & AC deep cleaning services." />
 
     <!-- OG Tags -->
-    <meta property="og:title" content="HDProClean — Professional Cleaning Services">
+    <meta property="og:title" content="HDProCleaning — Professional Cleaning Services">
     <meta property="og:description"
         content="Trusted & affordable home cleaning, kitchen cleaning, office cleaning, and deep cleaning services.">
     <meta property="og:type" content="website">
@@ -49,8 +49,18 @@
 
     <!-- NAVBAR -->
     <nav id="navbar">
-        <div class="logo">HDProClean</div>
-
+        <!-- Left: Logo + Header/Subtext -->
+        <div class="logo-header">
+            <a href="#home" class="logo">
+                <img src="/assets/logo/main_logo.png" alt="HDProCleaning Logo">
+            </a>
+            <div class="header-text">
+                <h1>HD PRO CLEANING</h1>
+                <p>Air Duct Cleaning</p>
+            </div>
+        </div>
+    
+        <!-- Navigation Links -->
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -58,22 +68,24 @@
             <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-
+    
+        <!-- Mobile Menu Icon -->
         <div id="mobileMenu" aria-label="Open Menu">☰</div>
     </nav>
+    <!-- MOBILE NAVIGATION -->
+
+
 
     <!-- HERO -->
     <section id="home" class="hero">
-
         <div class="hero-content">
             <h1>Spotless Spaces, Happy Faces</h1>
             <p>Your trusted partner for professional home and office cleaning services.</p>
-            <a href="#booking" class="hero-btn">Get a Free Quote</a>
+            <a href="#booking"  id="contact" class="hero-btn">Get a Free Quote</a>
             <!---
             <h1>Professional Home & Office Cleaning</h1>
             <p>Fast • Affordable • Trusted</p>-->
         </div>
-
     </section>
 
     <!-- HOW WE WORK SECTION -->
@@ -92,7 +104,7 @@
             </div>
 
             <div class="work-item">
-                <img src="/assets/img/IMG-20251123-WA0022.jpg" alt="Clean air ducts">
+                <img src="/assets/img/image.jpg" alt="Clean air ducts">
                 <p>Clean ducts improve air quality and HVAC efficiency.</p>
             </div>
 
@@ -128,8 +140,8 @@
         <h2>Our Professional Duct Cleaning Truck</h2>
 
         <div class="vehicle-grid">
-            <img src="/assets/img/IMG-20251123-WA0022.jpg" alt="Dirty Ducts Doctors Truck">
-            <img src="/assets/img/IMG-20251123-WA0026.jpg" alt="Duct cleaning truck side view">
+            <img src="/assets/img/dirt2.jpg" alt="Dirty Ducts Doctors Truck">
+            <img src="/assets/img/truck.jpg" alt="Duct cleaning truck side view">
         </div>
     </section>
 
@@ -196,7 +208,7 @@
 
             <!-- Step 2 -->
             <div class="hww-card">
-                <img src="/assets/img/IMG-20251123-WA0022.jpg" alt="Setup">
+                <img src="/assets/img/image.jpg" alt="Setup">
                 <div class="hww-content">
                     <div class="hww-icon-circle">⚙️</div>
                     <h3>Step 2: Machine Setup</h3>
@@ -217,7 +229,7 @@
 
             <!-- Step 4 -->
             <div class="hww-card">
-                <img src="/assets/img/IMG-20251123-WA0026.jpg" alt="Final Check">
+                <img src="/assets/img/image.jpg" alt="Final Check">
                 <div class="hww-content">
                     <div class="hww-icon-circle">✔️</div>
                     <h3>Step 4: Final Quality Check</h3>
@@ -231,32 +243,7 @@
     </section>
 
 
-    <!-- ABOUT -->
-    <section id="about" class="about-section dark-about">
-        <div class="about-container">
-
-            <div class="about-content">
-                <h2>About Us</h2>
-                <p>
-                    At <strong>HDProClean</strong>, we deliver professional-grade cleaning services for
-                    residential and commercial spaces. Our trained team uses advanced cleaning
-                    systems to ensure every corner is spotless, sanitized, and healthy.
-                </p>
-
-                <ul class="about-points">
-                    <li>✔ Professional & trained cleaning experts</li>
-                    <li>✔ Advanced equipment & deep-clean technology</li>
-                    <li>✔ Safe, hygienic & eco-friendly cleaning process</li>
-                    <li>✔ Trusted by homeowners & businesses across NCR</li>
-                </ul>
-            </div>
-
-            <div class="about-image">
-                <img src="/assets/img/IMG-20251123-WA0026.jpg" alt="HDProClean Service Vehicle">
-            </div>
-
-        </div>
-    </section>
+    
 
 
     <!-- SERVICES -->
@@ -307,7 +294,7 @@
             </div>
 
             <div class="service-card">
-                <img loading="lazy" src="/assets/img/air-duct-cleaning.jpg" alt="Office Cleaning Service">
+                <img loading="lazy" src="/assets/img/office-cleaning-service.jpg" alt="Office Cleaning Service">
                 <h3>Office Cleaning Service</h3>
                 <p>Coil, blower & antibacterial wash.</p>
                 <button class="view-details" data-title="Office Cleaning Service"
@@ -321,13 +308,13 @@
             <div class="service-card premium-card">
                 <div class="flip-inner">
                     <div class="flip-front">
-                        <img src="premium.png" alt="">
+                        <img src="/assets/img/premium.jpg" alt="">
                         <h3>Premium Deep Cleaning</h3>
                         <p>High-end cleaning with pro tools.</p>
                     </div>
 
                     <div class="flip-back">
-                        <h3>₹1499 Only</h3>
+                        <h3>Premium Deep Cleaning</h3>
                         <p>Includes full AC dismantle & jet wash.</p>
                         <button class="view-details" data-open-modal>Book Now</button>
                     </div>
@@ -335,6 +322,33 @@
             </div>
 
 
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about-section dark-about">
+        <div class="about-container">
+    
+            <div class="about-content">
+                <h2>About Us</h2>
+                <p>
+                    At <strong>HDProCleaning</strong>, we deliver professional-grade cleaning services for
+                    residential and commercial spaces. Our trained team uses advanced cleaning
+                    systems to ensure every corner is spotless, sanitized, and healthy.
+                </p>
+    
+                <ul class="about-points">
+                    <li>✔ Professional & trained cleaning experts</li>
+                    <li>✔ Advanced equipment & deep-clean technology</li>
+                    <li>✔ Safe, hygienic & eco-friendly cleaning process</li>
+                    <li>✔ Trusted by homeowners & businesses across NCR</li>
+                </ul>
+            </div>
+    
+            <div class="about-image">
+                <img src="/assets/img/image.jpg" alt="HDProCleaning Service Vehicle">
+            </div>
+    
         </div>
     </section>
 
@@ -408,11 +422,12 @@
                             <label>Service Type</label>
                             <select>
                                 <option>Select a service</option>
-                                <option>Home Cleaning</option>
-                                <option>Kitchen Deep Cleaning</option>
-                                <option>Bathroom Cleaning</option>
-                                <option>Office Cleaning</option>
-                                <option>Carpet / Sofa Cleaning</option>
+                                <option>Air Duct Cleaning</option>
+                                <option>HVAC Service</option>
+                                <option>Central Heating Service</option>
+                                <option>House Cleaning Service</option>
+                                <option>Office Cleaning Service</option>
+                                <option>Others</option>
                             </select>
                         </div>
                     </div>
@@ -466,9 +481,8 @@
                             <li><span>Monday</span><strong>9:00 AM – 5:00 PM</strong></li>
                             <li><span>Tuesday</span><strong>9:00 AM – 5:00 PM</strong></li>
                             <li><span>Wednesday</span><strong>9:00 AM – 5:00 PM</strong></li>
-                            <li><span>Thursday (Thanksgiving)</span><strong class="diff">Hours might differ</strong>
-                            </li>
-                            <li><span>Friday (Black Friday)</span><strong class="diff">Hours might differ</strong></li>
+                            <li><span>Thursday</span><strong>9:00 AM – 5:00 PM</strong></li>
+                            <li><span>Friday</span><strong>9:00 AM – 5:00 PM</strong></li>
                             <li><span>Saturday</span><strong>9:00 AM – 5:00 PM</strong></li>
                         </ul>
                         <!-- Call Us 
@@ -487,9 +501,7 @@
 
     <!-- FOOTER -->
     <footer class="site-footer">
-        <p>© <span id="year"></span> HDProClean — Professional Cleaning Services</p>
-        <div class="footer-content">
-        <p>Design & Developed by <a href="https://optms.co.in" target="_blank" rel="noopener">Optms Tech</a></p></div>
+        <p>© <span id="year"></span> HDProCleaning — Professional Cleaning Services</p>
     </footer>
     
 
