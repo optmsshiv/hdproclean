@@ -392,9 +392,11 @@
                 <h2>Get In Touch</h2>
                 <p>Fill out the form and our team will contact you shortly.</p>
 
-                <form>
+                <form method="POST" action="path_to_this_php_file.php">
                     <!-- Row 1: Name + Phone -->
                     <div class="row-2">
+                        <input type="hidden" name="form_type" value="contact">
+
                         <div class="input-group">
                             <label>Name</label>
                             <input type="text" placeholder="Enter your name">
@@ -517,8 +519,10 @@
     <div class="popup-box">
         <span class="popup-close" id="closeBooking">&times;</span>
         <h2>Book a Service</h2>
-        <form id="bookingForm">
+        <form id="bookingForm" method="POST" action="path_to_this_php_file.php">
             <div class="form-group">
+                <input type="hidden" name="form_type" value="booking">
+
                 <label for="serviceType">Service Type</label>
                 <input type="text" id="serviceType" name="serviceType" readonly>
             </div>
