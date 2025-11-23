@@ -1,462 +1,541 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>HD Pro Clean — Coming Soon</title>
-    <meta name="description" content="HD Pro Clean — Professional cleaning services. Landing page coming soon.">
-    <meta name="theme-color" content="#071322">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <style>
-        :root {
-            --bg1: #071322;
-            /* navy */
-            --accent: #00d4ff;
-            --muted: #9fb3c8;
-            --glass: rgba(255, 255, 255, 0.06);
-            --card: rgba(255, 255, 255, 0.03);
-            --radius: 14px;
-            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-        }
+    <title>HDProClean — Professional Home & Office Cleaning Services</title>
+    <meta name="description"
+        content="HDProClean provides expert home cleaning, kitchen deep cleaning, bathroom sanitization, office cleaning & AC deep cleaning services." />
 
-        * {
-            box-sizing: border-box
-        }
+    <!-- OG Tags -->
+    <meta property="og:title" content="HDProClean — Professional Cleaning Services">
+    <meta property="og:description"
+        content="Trusted & affordable home cleaning, kitchen cleaning, office cleaning, and deep cleaning services.">
+    <meta property="og:type" content="website">
 
-        html,
-        body {
-            height: 100%
-        }
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
 
-        body {
-            margin: 0;
-            background: radial-gradient(1200px 600px at 10% 20%, rgba(0, 212, 255, 0.05), transparent),
-                linear-gradient(180deg, var(--bg1) 0%, #07192a 50%, #02141c 100%);
-            color: #e8f6ff;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            overflow: hidden;
-        }
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/modal.css">
+    <link rel="stylesheet" href="assets/css/popup.css">
+    <link rel="stylesheet" href="assets/css/dark.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
 
-        /* stage */
-        .stage {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 32px
-        }
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-        .card {
-            width: min(980px, 96%);
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
-            border-radius: var(--radius);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(8px) saturate(120%);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            padding: 28px;
-            display: grid;
-            grid-template-columns: 1fr 380px;
-            gap: 20px;
-            align-items: center;
-        }
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        @media (max-width:880px) {
-            .card {
-                grid-template-columns: 1fr;
-                padding: 18px
-            }
-        }
-
-        .brand {
-            display: flex;
-            gap: 14px;
-            align-items: center
-        }
-
-        .logo {
-            width: 62px;
-            height: 62px;
-            display: grid;
-            place-items: center;
-            background: linear-gradient(135deg, var(--accent), #7b6bff);
-            border-radius: 12px;
-            flex: 0 0 62px
-        }
-
-        .logo svg {
-            width: 38px;
-            height: 38px;
-            filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.5))
-        }
-
-        .title {
-            font-size: 20px;
-            font-weight: 700;
-            letter-spacing: 0.2px
-        }
-
-        .subtitle {
-            color: var(--muted);
-            font-size: 13px;
-            margin-top: 2px
-        }
-
-        h1 {
-            margin: 8px 0 6px;
-            font-size: 34px
-        }
-
-        p.lead {
-            color: var(--muted);
-            margin: 0 0 14px
-        }
-
-        /* countdown */
-        .countdown {
-            display: flex;
-            gap: 12px;
-            align-items: center
-        }
-
-        .timebox {
-            background: var(--card);
-            padding: 12px 14px;
-            border-radius: 10px;
-            min-width: 72px;
-            text-align: center
-        }
-
-        .timebox .num {
-            font-size: 20px;
-            font-weight: 700
-        }
-
-        .timebox .lbl {
-            font-size: 12px;
-            color: var(--muted);
-            margin-top: 6px
-        }
-
-        /* subscribe */
-        form.subscribe {
-            display: flex;
-            flex-direction: column;
-            gap: 14px
-        }
-
-        .input-row {
-            display: flex;
-            gap: 8px
-        }
-
-        input[type="email"] {
-            flex: 1;
-            padding: 12px 14px;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            background: transparent;
-            color: inherit;
-            font-size: 15px
-        }
-
-        button {
-            padding: 12px 14px;
-            border-radius: 10px;
-            border: 0;
-            background: linear-gradient(90deg, var(--accent), #7b6bff);
-            color: #02141c;
-            font-weight: 700;
-            cursor: pointer
-        }
-
-        .note {
-            font-size: 13px;
-            color: var(--muted)
-        }
-
-        /* right column */
-        .right {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            align-items: center;
-            padding: 6px
-        }
-
-        .status {
-            background: var(--glass);
-            padding: 12px;
-            border-radius: 10px;
-            width: 100%;
-            text-align: center
-        }
-
-        .features {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 6px
-        }
-
-        .feature {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            color: var(--muted)
-        }
-
-        .feature svg {
-            width: 18px;
-            height: 18px;
-            opacity: 0.95
-        }
-
-        footer.small {
-            margin-top: 10px;
-            color: var(--muted);
-            font-size: 13px;
-            text-align: center
-        }
-
-        /* particles canvas full-screen but behind card */
-        canvas#bgcanvas {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none
-        }
-
-        .card {
-            position: relative;
-            z-index: 2
-        }
-
-        /* subtle bottom glow */
-        .glow {
-            position: fixed;
-            left: 50%;
-            bottom: -18vh;
-            transform: translateX(-50%);
-            width: 1200px;
-            height: 420px;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.12;
-            background: linear-gradient(90deg, var(--accent), #6f5aff);
-            z-index: 1
-        }
-
-        /* small screen tweaks */
-        @media (max-width:420px) {
-            h1 {
-                font-size: 26px
-            }
-
-            .timebox {
-                min-width: 60px
-            }
-        }
-    </style>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
-    <canvas id="bgcanvas" aria-hidden="true"></canvas>
-    <div class="glow" aria-hidden="true"></div>
 
-    <main class="stage">
-        <section class="card" role="region" aria-label="HD Pro Clean coming soon">
-            <div>
-                <div class="brand">
-                    <div class="logo" aria-hidden="true">
-                        <!-- simple cleaning icon -->
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path d="M12 2c.6 1.8 2 3 3.5 3.5C14 8 12 10 12 10s-2-2-3.5-4.5C10 5 11.4 3.8 12 2z"
-                                fill="white" opacity="0.95" />
-                            <path d="M5 15c1.5 1.5 3.5 2.5 6 2.5s4.5-1 6-2.5v5H5v-5z" fill="white" opacity="0.9" />
-                        </svg>
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <div class="logo">HDProClean</div>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div id="mobileMenu" aria-label="Open Menu">☰</div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+            <h1>Spotless Spaces, Happy Faces</h1>
+            <p>Your trusted partner for professional home and office cleaning services.</p>
+            <a href="#booking" class="hero-btn">Get a Free Quote</a>
+            <!---
+            <h1>Professional Home & Office Cleaning</h1>
+            <p>Fast • Affordable • Trusted</p>-->
+        </div>
+
+    </section>
+
+    <!-- HOW WE WORK SECTION -->
+    <section class="work-process how-we-work">
+        <h2>How Our Duct Cleaning Process Works</h2>
+
+        <div class="work-grid">
+            <div class="work-item">
+                <img src="/assets/img/IMG-20251123-WA0028.jpg" alt="Duct cleaning setup">
+                <p>Powerful negative-air vacuum setup for deep cleaning.</p>
+            </div>
+
+            <div class="work-item">
+                <img src="/assets/img/IMG-20251123-WA0001.jpg" alt="Duct cleaning hose">
+                <p>Industrial hose extracts dust and debris from inside ducts.</p>
+            </div>
+
+            <div class="work-item">
+                <img src="/assets/img/IMG-20251123-WA0022.jpg" alt="Clean air ducts">
+                <p>Clean ducts improve air quality and HVAC efficiency.</p>
+            </div>
+
+            <div class="work-item">
+                <img src="/assets/img/IMG-20251123-WA0023.jpg" alt="Duct cleaning">
+                <p>Our team of professionals thoroughly cleans ducts.</p>
+            </div>
+        </div>
+    </section>
+    <!---
+    <section class="how-we-work">
+        <div class="step">
+            <img src="/assets/img/IMG-20251123-WA0028.jpg" alt="">
+            <h3>Step 1: Inspection</h3>
+            <p>We inspect ducts thoroughly before cleaning.</p>
+        </div>
+    
+        <div class="step">
+            <img src="/assets/img/IMG-20251123-WA0022.jpg" alt="">
+            <h3>Step 2: Setup</h3>
+            <p>We attach our high-power vacuum system.</p>
+        </div>
+    
+        <div class="step">
+            <img src="/assets/img/IMG-20251123-WA0001.jpg" alt="">
+            <h3>Step 3: Deep Cleaning</h3>
+            <p>We clean all ducts for maximum airflow.</p>
+        </div>
+    </section> -->
+
+    <!-- SERVICE VEHICLE SECTION -->
+    <section class="service-vehicle">
+        <h2>Our Professional Duct Cleaning Truck</h2>
+
+        <div class="vehicle-grid">
+            <img src="/assets/img/IMG-20251123-WA0022.jpg" alt="Dirty Ducts Doctors Truck">
+            <img src="/assets/img/IMG-20251123-WA0026.jpg" alt="Duct cleaning truck side view">
+        </div>
+    </section>
+
+    <!--- HOW WE WORK SECTION 
+    <section class="how-we-work">
+        <h2 class="section-title">How We Work</h2>
+        <p class="section-subtitle">A simple, transparent and professional cleaning process</p>
+    
+        <div class="hww-container">
+    
+            // Step 1 
+            <div class="hww-card">
+                <img src="/assets/img/IMG-20251123-WA0028.jpg" alt="Inspection">
+                <div class="hww-content">
+                    <div class="hww-icon">🔍</div>
+                    <h3>Step 1: Inspection</h3>
+                    <p>We assess your duct system and identify dust, blockage and contamination to ensure the right cleaning
+                        process.</p>
+                </div>
+            </div>
+    
+            // Step 2 
+            <div class="hww-card">
+                <img src="/assets/img/IMG-20251123-WA0022.jpg" alt="Setup">
+                <div class="hww-content">
+                    <div class="hww-icon">⚙️</div>
+                    <h3>Step 2: Machine Setup</h3>
+                    <p>Our high-powered vacuum and agitation tools are connected to the ducts for a deep and thorough
+                        cleaning.</p>
+                </div>
+            </div>
+    
+            // Step 3 
+            <div class="hww-card">
+                <img src="/assets/img/IMG-20251123-WA0001.jpg" alt="Cleaning">
+                <div class="hww-content">
+                    <div class="hww-icon">🧼</div>
+                    <h3>Step 3: Complete Duct Cleaning</h3>
+                    <p>We remove dust, allergens and debris from every corner of your ducts to improve airflow and air
+                        quality.</p>
+                </div>
+            </div>
+    
+        </div>
+    </section> -->
+
+    <!--how we work premium -->
+    <section class="how-we-work premium-hww">
+        <h2 class="section-title">How We Work</h2>
+        <p class="section-subtitle">A clean, professional 4-step process designed for quality</p>
+
+        <div class="hww-container">
+
+            <!-- Step 1 -->
+            <div class="hww-card">
+                <img src="/assets/img/IMG-20251123-WA0028.jpg" alt="Inspection">
+                <div class="hww-content">
+                    <div class="hww-icon-circle">🔍</div>
+                    <h3>Step 1: Inspection</h3>
+                    <p>We carefully inspect your ducts, vents, and system to identify dust buildup, blockages, and
+                        contamination levels.</p>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="hww-card">
+                <img src="/assets/img/IMG-20251123-WA0022.jpg" alt="Setup">
+                <div class="hww-content">
+                    <div class="hww-icon-circle">⚙️</div>
+                    <h3>Step 2: Machine Setup</h3>
+                    <p>Our industrial-grade vacuum system and tools are set up to ensure deep and powerful cleaning.</p>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="hww-card">
+                <img src="/assets/img/IMG-20251123-WA0001.jpg" alt="Deep Clean">
+                <div class="hww-content">
+                    <div class="hww-icon-circle">🧼</div>
+                    <h3>Step 3: Deep Cleaning</h3>
+                    <p>We thoroughly clean all ducts, vents, and branches to remove dust, allergens, smoke residue, and
+                        debris.</p>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="hww-card">
+                <img src="/assets/img/IMG-20251123-WA0026.jpg" alt="Final Check">
+                <div class="hww-content">
+                    <div class="hww-icon-circle">✔️</div>
+                    <h3>Step 4: Final Quality Check</h3>
+                    <p>We perform a final airflow and hygiene check to ensure your system is perfectly clean and
+                        functioning
+                        well.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about" class="about-section dark-about">
+        <div class="about-container">
+
+            <div class="about-content">
+                <h2>About Us</h2>
+                <p>
+                    At <strong>HDProClean</strong>, we deliver professional-grade cleaning services for
+                    residential and commercial spaces. Our trained team uses advanced cleaning
+                    systems to ensure every corner is spotless, sanitized, and healthy.
+                </p>
+
+                <ul class="about-points">
+                    <li>✔ Professional & trained cleaning experts</li>
+                    <li>✔ Advanced equipment & deep-clean technology</li>
+                    <li>✔ Safe, hygienic & eco-friendly cleaning process</li>
+                    <li>✔ Trusted by homeowners & businesses across NCR</li>
+                </ul>
+            </div>
+
+            <div class="about-image">
+                <img src="/assets/img/IMG-20251123-WA0026.jpg" alt="HDProClean Service Vehicle">
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- SERVICES -->
+    <section id="services" class="section">
+        <h2>Our Services</h2>
+
+        <div class="service-container">
+
+            <!-- SERVICE CARD -->
+            <div class="service-card">
+                <img loading="lazy" src="/assets/img/air-duct-cleaning.jpg" alt="Air Duct Cleaning Service">
+                <h3>Air Duct Cleaning Service</h3>
+                <p>Coil, blower & antibacterial wash.</p>
+                <button class="view-details" data-title="Air Duct Cleaning Service"
+                    data-desc="Air duct cleaning includes coil cleaning, blower wash, antibacterial treatment, and drain cleaning.">
+                    View Details
+                </button>
+            </div>
+
+            <div class="service-card">
+                <img loading="lazy" src="/assets/img/hvac-contractor.jpg" alt="HVAC Contractor">
+                <h3>HVAC Contractor</h3>
+                <p>HVAC Contractor.</p>
+                <button class="view-details" data-title="HVAC Contractor"
+                    data-desc="HVAC Contractor. Includes coil cleaning, blower wash, antibacterial treatment, and drain cleaning.">
+                    View Details
+                </button>
+            </div>
+
+            <div class="service-card">
+                <img loading="lazy" src="/assets/img/central-heating-service.webp" alt="Central Heating Service">
+                <h3>Central Heating Service</h3>
+                <p>Coil, blower & antibacterial wash.</p>
+                <button class="view-details" data-title="Central Heating Service"
+                    data-desc="Includes dusting, vacuuming, mopping, and sanitization of workspaces and common areas.">
+                    View Details
+                </button>
+            </div>
+
+            <div class="service-card">
+                <img loading="lazy" src="/assets/img/house-cleaning-service.jpg" alt="House Cleaning Service">
+                <h3>House cleaning service</h3>
+                <p>Tiles, taps, toilet & full sanitization.</p>
+                <button class="view-details" data-title="House Cleaning Service"
+                    data-desc="Includes tiles scrubbing, taps polishing, toilet sanitization, and full bathroom cleaning.">
+                    View Details
+                </button>
+            </div>
+
+            <div class="service-card">
+                <img loading="lazy" src="/assets/img/air-duct-cleaning.jpg" alt="Office Cleaning Service">
+                <h3>Office Cleaning Service</h3>
+                <p>Coil, blower & antibacterial wash.</p>
+                <button class="view-details" data-title="Office Cleaning Service"
+                    data-desc="Includes dusting, vacuuming, mopping, and sanitization of workspaces and common areas.">
+                    View Details
+                </button>
+            </div>
+
+            <!-- PREMIUM SERVICE CARD -->
+
+            <div class="service-card premium-card">
+                <div class="flip-inner">
+                    <div class="flip-front">
+                        <img src="premium.png" alt="">
+                        <h3>Premium Deep Cleaning</h3>
+                        <p>High-end cleaning with pro tools.</p>
                     </div>
-                    <div>
-                        <div class="title">HD Pro Clean</div>
-                        <div class="subtitle">Professional cleaning — commercial & residential</div>
+
+                    <div class="flip-back">
+                        <h3>₹1499 Only</h3>
+                        <p>Includes full AC dismantle & jet wash.</p>
+                        <button class="view-details" data-open-modal>Book Now</button>
                     </div>
                 </div>
+            </div>
 
-                <h1>We’re getting things spotless ✨</h1>
-                <p class="lead">HD Pro Clean is launching soon — a professional cleaning service focused on reliability,
-                    safety, and sparkling results. Join the waitlist for launch promos.</p>
 
-                <div class="countdown" id="countdown" aria-live="polite" aria-atomic="true">
-                    <div class="timebox" title="Days">
-                        <div class="num" id="days">00</div>
-                        <div class="lbl">Days</div>
-                    </div>
-                    <div class="timebox" title="Hours">
-                        <div class="num" id="hours">00</div>
-                        <div class="lbl">Hours</div>
-                    </div>
-                    <div class="timebox" title="Minutes">
-                        <div class="num" id="mins">00</div>
-                        <div class="lbl">Minutes</div>
-                    </div>
-                    <div class="timebox" title="Seconds">
-                        <div class="num" id="secs">00</div>
-                        <div class="lbl">Seconds</div>
-                    </div>
-                </div>
+        </div>
+    </section>
 
-                <form class="subscribe" id="subscribeForm" novalidate>
-                    <div class="input-row">
-                        <input id="email" type="email" placeholder="Enter your email to join waitlist"
-                            aria-label="Email address" required>
-                        <button type="submit">Notify me</button>
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="section">
+        <h2>What Clients Say</h2>
+
+        <div class="testimonial-wrap">
+            <div class="testimonial-slider" id="testimonialSlider">
+                <div class="slide active">“Amazing deep cleaning service! My kitchen looks brand new.” – Riya</div>
+                <div class="slide">“Professional team, on time, and perfect work.” – Sameer</div>
+                <div class="slide">“Affordable & high quality service. Highly recommended!” – Neha</div>
+            </div>
+
+            <div class="testimonial-controls">
+                <button id="prevTest">‹</button>
+                <div id="dots" class="dots"></div>
+                <button id="nextTest">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLIENTS 
+    <section id="clients" class="section">
+        <h2>Our Clients</h2>
+
+        <div class="logo-carousel">
+            <div class="logo-track">
+                <img loading="lazy" src="assets/img/logo1.png" alt="Client Logo">
+                <img loading="lazy" src="assets/img/logo2.png" alt="Client Logo">
+                <img loading="lazy" src="assets/img/logo3.png" alt="Client Logo">
+                <img loading="lazy" src="assets/img/logo4.png" alt="Client Logo">
+                <img loading="lazy" src="assets/img/logo5.png" alt="Client Logo">
+            </div>
+        </div>
+    </section>-->
+
+    <!--form secion -->
+
+    <section class="contact-section light">
+        <div class="contact-wrapper">
+
+            <!-- Left: Form -->
+            <div class="contact-form" id="contact">
+                <h2>Get In Touch</h2>
+                <p>Fill out the form and our team will contact you shortly.</p>
+
+                <form>
+
+                    <!-- Row 1: Name + Phone -->
+                    <div class="row-2">
+                        <div class="input-group">
+                            <label>Name</label>
+                            <input type="text" placeholder="Enter your name">
+                        </div>
+
+                        <div class="input-group">
+                            <label>Phone</label>
+                            <input type="text" placeholder="Enter your phone number">
+                        </div>
                     </div>
-                    <div class="note" id="formNote">No spam — unsubscribe anytime.</div>
+
+                    <!-- Row 2: Email + Service -->
+                    <div class="row-2">
+                        <div class="input-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="Enter your email">
+                        </div>
+
+                        <div class="input-group">
+                            <label>Service Type</label>
+                            <select>
+                                <option>Select a service</option>
+                                <option>Home Cleaning</option>
+                                <option>Kitchen Deep Cleaning</option>
+                                <option>Bathroom Cleaning</option>
+                                <option>Office Cleaning</option>
+                                <option>Carpet / Sofa Cleaning</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Message -->
+                    <div class="input-group full">
+                        <label>Message</label>
+                        <textarea placeholder="Write your message"></textarea>
+                    </div>
+
+                    <button class="submit-btn">Send Message</button>
                 </form>
             </div>
 
-            <aside class="right">
-                <div class="status">
-                    <strong>Estimated launch</strong>
-                    <div style="margin-top:6px;color:var(--muted);font-size:14px" id="launchDateText">January 15, 2026
+            <!-- Right: Contact Details -->
+            <div class="contact-info">
+                <h2>Contact Details</h2>
+
+                <div class="info-box call">
+                    <div class="icon-circle">
+                        <img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="">
+                    </div>
+                    <div>
+                        <h4>Call Us</h4>
+                        <p>+1 718-360-0226</p>
                     </div>
                 </div>
 
-                <div class="features" aria-hidden="false">
-                    <div class="feature"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M5 12h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>Eco-friendly cleaners</div>
-                    <div class="feature"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 5v14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>Certified technicians</div>
-                    <div class="feature"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 12h16M12 4v16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>Transparent pricing</div>
+
+                <div class="info-box email">
+                    <div class="icon-circle">
+                    <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt=""></div>
+                    <div>
+                        <h4>Email</h4>
+                        <p>support@hdproclean.com</p>
+                    </div>
                 </div>
 
-                <footer class="small">Follow us on
-                    <a href="#" style="color:inherit;text-decoration:none;margin-left:6px;opacity:0.9">Instagram</a>
-                    • <a href="#" style="color:inherit;text-decoration:none;opacity:0.9">WhatsApp</a>
-                </footer>
-            </aside>
-        </section>
-    </main>
+                <!-- Working Hours -->
+                <div id="info-box" class="hours-section">
+                    <div class="info-box">
+                        <div class="icon-circle">
+                        <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" alt=""></div>
 
-    <script>
-        /* ---------- CONFIG: set your launch date here (ISO 8601 local time) ---------- */
-        // Change this to your real launch date/time. Use local timezone or include offset.
-        const LAUNCH_ISO = '2025-11-25T10:00:00';
+                        <h3>Working Hours</h3>
+                    </div>
 
-        const launchDate = new Date(LAUNCH_ISO);
-        // show formatted launch date text
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById('launchDateText').textContent = launchDate.toLocaleDateString(undefined, options);
+                    <div class="hours-box">
+                        <ul>
+                            <li><span>Sunday</span><strong>9:00 AM – 5:00 PM</strong></li>
+                            <li><span>Monday</span><strong>9:00 AM – 5:00 PM</strong></li>
+                            <li><span>Tuesday</span><strong>9:00 AM – 5:00 PM</strong></li>
+                            <li><span>Wednesday</span><strong>9:00 AM – 5:00 PM</strong></li>
+                            <li><span>Thursday (Thanksgiving)</span><strong class="diff">Hours might differ</strong>
+                            </li>
+                            <li><span>Friday (Black Friday)</span><strong class="diff">Hours might differ</strong></li>
+                            <li><span>Saturday</span><strong>9:00 AM – 5:00 PM</strong></li>
+                        </ul>
+                        <!-- Call Us 
+                        <div class="hours-contact">
+                            <p><strong>Call Us:</strong></p>
+                            <a href="tel:+17183600226" class="phone-number">+1 718-360-0226</a>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        function updateCountdown() {
-            const now = new Date();
-            let diff = Math.max(0, launchDate - now);
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            diff -= days * (1000 * 60 * 60 * 24);
-            const hours = Math.floor(diff / (1000 * 60 * 60));
-            diff -= hours * (1000 * 60 * 60);
-            const mins = Math.floor(diff / (1000 * 60));
-            diff -= mins * (1000 * 60);
-            const secs = Math.floor(diff / 1000);
 
-            document.getElementById('days').textContent = String(days).padStart(2, '0');
-            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-            document.getElementById('mins').textContent = String(mins).padStart(2, '0');
-            document.getElementById('secs').textContent = String(secs).padStart(2, '0');
-        }
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
 
-        /* ---------- subscribe form: client-only (no server) ---------- */
-        const form = document.getElementById('subscribeForm');
-        const email = document.getElementById('email');
-        const note = document.getElementById('formNote');
 
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const val = email.value.trim();
-            const re = /^\S+@\S+\.\S+$/;
-            if (!re.test(val)) {
-                note.textContent = 'Please enter a valid email address.'; note.style.color = '#ffb3b3'; return;
-            }
-            // fallback behaviour: open mail client with subject if no backend connected
-            const subject = encodeURIComponent('Waitlist signup — HD Pro Clean');
-            const body = encodeURIComponent('Please add this email to the waitlist: ' + val);
-            // try to POST to /subscribe (for future backend). If not present, fallback to mailto.
-            fetch('/subscribe', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: val }) })
-                .then(r => {
-                    if (r.ok) {
-                        note.textContent = 'Thanks — you are on the list!'; note.style.color = 'lightgreen'; form.reset();
-                    } else throw new Error('no backend');
-                })
-                .catch(() => {
-                    // open mail client as fallback so owner receives the email
-                    window.location.href = 'mailto:hello@hdproclean.us?subject=' + subject + '&body=' + body;
-                    note.textContent = 'If your mail client opened, the owner will be notified. Or connect a backend at /subscribe for a smoother signup.';
-                    note.style.color = 'var(--muted)';
-                });
-        });
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <p>© <span id="year"></span> HDProClean — Professional Cleaning Services</p>
+        <div class="footer-content">
+        <p>Design & Developed by <a href="https://optms.co.in" target="_blank" rel="noopener">Optms Tech</a></p></div>
+    </footer>
+    
 
-        /* ---------- animated particle background (lightweight) ---------- */
-        (function () {
-            const canvas = document.getElementById('bgcanvas');
-            const ctx = canvas.getContext('2d');
-            let w = canvas.width = innerWidth, h = canvas.height = innerHeight;
-            const particles = [];
-            const TAU = Math.PI * 2;
+    <!-- BOOK NOW BUTTON -->
+    <a href="#contact" id="contact" class="book-now">Get a quote</a>
 
-            function rand(min, max) { return Math.random() * (max - min) + min }
-            function onResize() { w = canvas.width = innerWidth; h = canvas.height = innerHeight }
-            addEventListener('resize', onResize);
+    <!-- SERVICE MODAL -->
+    <div id="serviceModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDesc"></p>
+            <a href="#contact" class="modal-btn">Book This Service</a>
+        </div>
+    </div>
 
-            const pal = ['rgba(0,212,255,0.12)', 'rgba(111,90,255,0.09)', 'rgba(0,212,255,0.06)'];
+    <!-- BOOKING POPUP -->
+    <div id="bookingPopup" class="popup-overlay">
+        <div class="popup-box animate-popup">
+            <span class="popup-close" id="closeBooking">&times;</span>
 
-            for (let i = 0; i < 80; i++) {
-                particles.push({ x: rand(0, w), y: rand(0, h), r: rand(0.6, 3.6), vx: rand(-0.2, 0.2), vy: rand(-0.2, 0.2), c: pal[i % pal.length], life: rand(50, 400) });
-            }
+            <h2>Book a Service</h2>
 
-            function tick() {
-                ctx.clearRect(0, 0, w, h);
-                // subtle gradient overlay
-                const g = ctx.createLinearGradient(0, 0, w, h);
-                g.addColorStop(0, 'rgba(4,10,16,0.12)');
-                g.addColorStop(1, 'rgba(2,6,12,0.18)');
-                ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+            <form id="bookingForm">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="text" name="phone" placeholder="Phone Number" required>
+                <input type="email" name="email" placeholder="Email (Optional)">
+                <textarea name="message" placeholder="Service details..." rows="4"></textarea>
+                <button type="submit" class="popup-btn">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
 
-                for (let p of particles) {
-                    p.x += p.vx; p.y += p.vy;
-                    p.life -= 0.5;
-                    if (p.x < -20) p.x = w + 20; if (p.x > w + 20) p.x = -20;
-                    if (p.y < -20) p.y = h + 20; if (p.y > h + 20) p.y = -20;
-                    if (p.life < 0) { p.x = rand(0, w); p.y = rand(0, h); p.life = rand(50, 400); p.r = rand(0.6, 3.6); }
+    <!-- SUCCESS POPUP -->
+    <div id="successPopup" class="success-overlay">
+        <div class="success-box animate-success">
+            <div class="success-icon">✔</div>
+            <h3>Booking Successful!</h3>
+            <p>We will contact you shortly.</p>
+        </div>
+    </div>
 
-                    // draw glow
-                    ctx.beginPath();
-                    ctx.fillStyle = p.c;
-                    ctx.arc(p.x, p.y, p.r, 0, TAU);
-                    ctx.fill();
-                    // soft stroke
-                    ctx.beginPath();
-                    ctx.strokeStyle = 'rgba(255,255,255,0.02)';
-                    ctx.lineWidth = 0.6;
-                    ctx.arc(p.x, p.y, p.r + 2, 0, TAU);
-                    ctx.stroke();
-                }
+    <!-- JS -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/modal.js"></script>
 
-                requestAnimationFrame(tick);
-            }
-            tick();
-        })();
-    </script>
 </body>
 
 </html>

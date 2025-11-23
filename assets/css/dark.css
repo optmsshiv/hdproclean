@@ -1,0 +1,404 @@
+.dark-about {
+    background: #0b2540;
+    /* your dark theme color */
+    color: #d7e3f4;
+    padding: 80px 20px;
+}
+
+.dark-about h2 {
+    color: #ffffff;
+}
+
+.dark-about p {
+    color: #d1ddef;
+}
+
+.dark-about .about-points li {
+    color: #e0e9f5;
+}
+
+.dark-about .about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1200px;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+.dark-about .about-image img {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 8px 22px rgba(255, 255, 255, 0.10);
+}
+
+
+/*how we work process*/
+/* Section Styling */
+.how-we-work {
+    padding: 80px 20px;
+    background: #f8fafc;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #0b2540;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 50px;
+}
+
+/* Container */
+.hww-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Card */
+.hww-card {
+    background: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.10);
+    transition: 0.3s;
+}
+
+.hww-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Styling */
+.hww-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/* Content */
+.hww-content {
+    padding: 25px;
+    text-align: left;
+}
+
+.hww-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.hww-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #0b2540;
+}
+
+.hww-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* premium */
+.premium-hww {
+    padding: 80px 20px;
+    background: #f8fafc;
+    text-align: center;
+}
+
+.premium-hww .section-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #0b2540;
+}
+
+.premium-hww .section-subtitle {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 50px;
+}
+
+/* Grid Layout */
+.premium-hww .hww-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1400px;
+    margin: auto;
+}
+
+/* Cards */
+.premium-hww .hww-card {
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.10);
+    transition: 0.3s;
+}
+
+.premium-hww .hww-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+/* Images */
+.premium-hww .hww-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+/* Content */
+.premium-hww .hww-content {
+    padding: 25px;
+    text-align: left;
+}
+
+/* Circular Icons */
+.hww-icon-circle {
+    width: 60px;
+    height: 60px;
+    background: #0b2540;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.9rem;
+    margin-bottom: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.premium-hww h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #0b2540;
+}
+
+.premium-hww p {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* contact section */
+.contact-section.light {
+    background: #f7faff;
+    padding: 60px 0;
+}
+
+.contact-wrapper {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+}
+
+.contact-form h2,
+.contact-info h2 {
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+.contact-form p {
+    margin-bottom: 25px;
+    color: #555;
+}
+
+.row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
+
+.full textarea {
+    height: 130px;
+}
+
+.submit-btn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 15px;
+    background: #0b2540;
+    color: #fff;
+    border: 0;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.contact-info .info-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.contact-info img {
+    width: 25px;
+}
+
+
+/* Responsive */
+@media (max-width: 900px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .row-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* hours section */
+.hours-section {
+    margin-top: 2px;
+    
+        padding: 2px 2px;
+        color: #1f1f1f;
+        text-align: center;
+}
+.hours-box ul li strong {
+    color: #02348b;
+}
+
+.hours-box ul li strong.diff {
+    color: #ffcc40;
+}
+
+.hours-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.hours-box li {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    color: #444;
+}
+
+.hours-contact .phone-number {
+    color: #0b2540;
+    font-weight: 700;
+}
+.hours-contact .phone-number {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #4db8ff;
+    text-decoration: none;
+}
+
+/* Card Background for Contact Section */
+.contact-section.light {
+    background: #f0f4ff;
+    /* light blue background */
+    padding: 60px 0;
+}
+
+.contact-wrapper {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* On mobile, reduce padding for better fit */
+@media (max-width: 900px) {
+    .contact-wrapper {
+        padding: 25px;
+    }
+}
+/* Border lines inside contact info */
+.contact-info .info-box {
+    padding-bottom: 18px;
+    border-bottom: 1px solid #e6e9ee;
+}
+
+.contact-info .info-box:last-child {
+    border-bottom: none;
+}
+/* Circle background for icons */
+
+
+
+.contact-form .input-group {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.contact-form .input-group:last-child {
+    border-bottom: none;
+}
+/* Circle wrapper for icons */
+/* Circle wrapper for icons */
+.icon-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid transparent;
+    /* default, will override per type */
+}
+
+/* Icon sizes */
+.icon-circle img {
+    width: 22px;
+    height: 22px;
+    display: block;
+}
+
+/* Specific colors for each type */
+.info-box.call .icon-circle {
+    background: #e0f7fa;
+    /* soft cyan */
+    border-color: #b2ebf2;
+}
+
+.info-box.email .icon-circle {
+    background: #fff3e0;
+    /* soft orange */
+    border-color: #ffe0b2;
+}
+
+.hours-section .info-box .icon-circle {
+    background: #f1f8e9;
+    /* soft green */
+    border-color: #dcedc8;
+}
