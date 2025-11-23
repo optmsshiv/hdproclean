@@ -872,39 +872,35 @@ footer {
 }
 
 /* Button Loader */
-.submit-btn,
-.popup-btn {
+/* Button with loader */
+.submit-btn {
     position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    transition: 0.3s ease;
+    transition: 0.2s ease;
 }
 
 .btn-loader {
     display: none;
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     border: 3px solid #fff;
     border-top-color: transparent;
     border-radius: 50%;
-    animation: spin 0.8s linear infinite;
+    animation: spin 0.7s linear infinite;
 }
 
-.loading .btn-text {
+.submit-btn.loading .btn-text {
     opacity: 0;
 }
 
-.loading .btn-loader {
+.submit-btn.loading .btn-loader {
     display: inline-block;
 }
 
 @keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-
     to {
         transform: rotate(360deg);
     }
@@ -912,21 +908,21 @@ footer {
 
 /* Success message under contact form */
 .success-msg {
-    margin-top: 10px;
-    padding: 10px 12px;
-    background: #e5f9e7;
-    border-left: 4px solid #2ecc71;
-    color: #2a7f48;
+    margin-top: 12px;
+    padding: 12px;
+    background: #e8fcee;
+    border-left: 4px solid #27ae60;
+    color: #1f7c45;
     border-radius: 6px;
-    font-size: 0.95rem;
     display: none;
-    animation: fadeIn 0.3s ease;
+    font-size: 0.95rem;
+    animation: fadeIn 0.3s ease-out;
 }
 
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(6px);
+        transform: translateY(5px);
     }
 
     to {
