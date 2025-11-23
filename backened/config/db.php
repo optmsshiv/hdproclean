@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 // Database credentials
 $host = "localhost";
 $db   = "edrppymy_hdprocleaning";
-$user = "hdproclean";
+$user = "edrppymy_hdproclean";
 $pass = "123@Hdproclean";
 
 // Create connection
