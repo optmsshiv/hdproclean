@@ -5,6 +5,7 @@ header("Content-Type: application/json");
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
 // Database credentials
 $host = "localhost";
 $db   = "edrppymy_hdprocleaning";
@@ -19,124 +20,142 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Function to sanitize input
+// Sanitize input
 function clean($data, $conn) {
     return htmlspecialchars($conn->real_escape_string(trim($data)));
 }
 
-// Determine which form is submitted
+// HTML Email Template
+function emailTemplate($title, $content) {
+    return "
+    <div style='background:#f5f7fa;padding:30px;font-family:Arial,sans-serif;color:#333;'>
+        <div style='max-width:600px;margin:0 auto;background:#fff;border-radius:10px;overflow:hidden;border:1px solid #ddd;'>
+
+            <div style='background:#0b2540;padding:20px;text-align:center;'>
+                <img src='https://hdprocleaning.us/assets/logo.png' style='max-width:160px;'>
+            </div>
+
+            <div style='padding:25px;'>
+                <h2 style='margin-top:0;color:#0b2540;'>$title</h2>
+                <p style='font-size:15px;line-height:1.6;'>$content</p>
+            </div>
+
+            <div style='background:#f0f3f7;padding:15px;text-align:center;font-size:13px;color:#666;'>
+                © " . date("Y") . " HDProClean — Professional Cleaning Services
+            </div>
+
+        </div>
+    </div>";
+}
+
+// Handle POST request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    // Detect form type
     $form_type = isset($_POST['form_type']) ? clean($_POST['form_type'], $conn) : 'contact';
 
-    $name = isset($_POST['name']) ? clean($_POST['name'], $conn) : '';
-    $phone = isset($_POST['phone']) ? clean($_POST['phone'], $conn) : '';
-    $email = isset($_POST['email']) ? clean($_POST['email'], $conn) : NULL;
-    $service_type = isset($_POST['serviceType']) ? clean($_POST['serviceType'], $conn) : NULL;
-    $message = isset($_POST['message']) ? clean($_POST['message'], $conn) : NULL;
+    $name         = clean($_POST['name']      ?? '', $conn);
+    $phone        = clean($_POST['phone']     ?? '', $conn);
+    $email        = clean($_POST['email']     ?? '', $conn);
+    $service_type = clean($_POST['serviceType'] ?? '', $conn);
+    $message      = clean($_POST['message']   ?? '', $conn);
 
-    // Prepare SQL statement
-    $stmt = $conn->prepare("INSERT INTO contacts_bookings (form_type, name, phone, email, service_type, message) VALUES (?, ?, ?, ?, ?, ?)");
+    // Insert into DB
+    $stmt = $conn->prepare("INSERT INTO contacts_bookings (form_type, name, phone, email, service_type, message)
+                            VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssssss", $form_type, $name, $phone, $email, $service_type, $message);
 
     if ($stmt->execute()) {
 
-         // ---- SEND EMAIL VIA PHPMailer SMTP ----
-    require __DIR__ . '/PHPMailer-master/src/PHPMailer.php';
-    require __DIR__ . '/PHPMailer-master/src/SMTP.php';
-    require __DIR__ . '/PHPMailer-master/src/Exception.php';
+        // Load PHPMailer
+        require __DIR__ . '/PHPMailer-master/src/PHPMailer.php';
+        require __DIR__ . '/PHPMailer-master/src/SMTP.php';
+        require __DIR__ . '/PHPMailer-master/src/Exception.php';
 
-    $mail = new PHPMailer\PHPMailer\PHPMailer(true);
-
-    try {
-        // SMTP settings
-        $mail->isSMTP();
-        $mail->Host       = 'smtp.gmail.com';
-        $mail->SMTPAuth   = true;
-        $mail->Username   = 'help.listmybusiness@gmail.com';   // <-- your Gmail
-        $mail->Password   = 'elei qeff snro dgcc';     // <-- 16-char app password
-        $mail->SMTPSecure = 'tls';
-        $mail->Port       = 587;
-
-        // Sender & Receiver
-        $mail->setFrom('info@hdprocleaning.us', 'HDProClean');
-        $mail->addAddress('help.listmybusiness@gmail.com'); // send to yourself
-
-        // Email content
-        $mail->isHTML(true);
-        $mail->Subject = "New Contact Form Submission - HDProClean";
-
-        $mail->Body = "
-            <h2>New Contact Form Submission</h2>
-            <p><strong>Name:</strong> $name</p>
-            <p><strong>Phone:</strong> $phone</p>
-            <p><strong>Email:</strong> $email</p>
-            <p><strong>Service:</strong> $service_type</p>
-            <p><strong>Message:</strong><br>$message</p>
-            <p><hr>Sent on " . date('d M Y, h:i A') . "</p>
-        ";
-
-        $mail->Body = $adminBody;
-        $mail->send();
-
-        echo json_encode(['status' => 'success', 'message' => 'Form submitted successfully']);
-    }
-    catch (Exception $e) {
-        echo json_encode(['status' => 'error', 'message' => "Message could not be sent. Mailer Error: {$mail->ErrorInfo}"]);
-    }
-    // ---- END EMAIL VIA PHPMailer SMTP ----
-
-    } 
-    else {
-        echo json_encode(['status' => 'error', 'message' => 'Database error: ' . $stmt->error]);
-    }
-
-        // 3️⃣ SEND AUTO-REPLY TO USER (ADD IT HERE)
-    if (!empty($email)) {
-        $reply = new PHPMailer\PHPMailer\PHPMailer(true);
+        // -------------------------
+        // 1️⃣ SEND ADMIN EMAIL
+        // -------------------------
+        $mail = new PHPMailer\PHPMailer\PHPMailer(true);
 
         try {
-            $reply->isSMTP();
-            $reply->Host       = 'smtp.gmail.com';
-            $reply->SMTPAuth   = true;
-            $reply->Username   = 'help.listmybusiness@gmail.com';
-            $reply->Password   = 'elei qeff snro dgcc';
-            $reply->SMTPSecure = 'tls';
-            $reply->Port       = 587;
+            $mail->isSMTP();
+            $mail->Host       = 'smtp.gmail.com';
+            $mail->SMTPAuth   = true;
+            $mail->Username   = 'help.listmybusiness@gmail.com';
+            $mail->Password   = 'elei qeff snro dgcc';
+            $mail->SMTPSecure = 'tls';
+            $mail->Port       = 587;
 
-            $reply->setFrom('info@hdprocleaning.us', 'HDProClean');
-            $reply->addAddress($email, $name);
+            $mail->setFrom('info@hdprocleaning.us', 'HDProClean');
+            $mail->addAddress('help.listmybusiness@gmail.com');
 
-            $reply->isHTML(true);
-            $reply->Subject = "We Received Your Request – HDProClean";
+            $mail->isHTML(true);
+            $mail->Subject = "New Contact Submission – HDProClean";
 
-            $reply->Body = emailTemplate(
-                "Thank You for Contacting HDProClean",
+            $adminBody = emailTemplate(
+                "New Contact Request",
                 "
-                Hi <strong>$name</strong>,<br><br>
-                Thank you for reaching out to us. 
-                Our team will contact you shortly.<br><br>
-
-                <strong>Your Details:</strong><br>
-                Phone: $phone<br>
-                Service: $service_type<br><br>
-
-                — HDProClean Support Team
+                <strong>Name:</strong> $name<br>
+                <strong>Phone:</strong> $phone<br>
+                <strong>Email:</strong> $email<br>
+                <strong>Service:</strong> $service_type<br><br>
+                <strong>Message:</strong><br>$message
                 "
             );
 
-            $reply->send();
-        } catch (Exception $e) {
-            // Ignore errors
-        }
-    }
+            $mail->Body = $adminBody;
+            $mail->send();
+        } catch (Exception $e) {}
 
-    // 4️⃣ Finally return response to frontend
-    echo json_encode([
-        'status' => 'success',
-        'message' => 'Form submitted successfully'
-    ]);
+
+        // -------------------------
+        // 2️⃣ AUTO-REPLY TO USER
+        // -------------------------
+        if (!empty($email)) {
+
+            $reply = new PHPMailer\PHPMailer\PHPMailer(true);
+
+            try {
+                $reply->isSMTP();
+                $reply->Host       = 'smtp.gmail.com';
+                $reply->SMTPAuth   = true;
+                $reply->Username   = 'help.listmybusiness@gmail.com';
+                $reply->Password   = 'elei qeff snro dgcc';
+                $reply->SMTPSecure = 'tls';
+                $reply->Port       = 587;
+
+                $reply->setFrom('info@hdprocleaning.us', 'HDProClean');
+                $reply->addAddress($email, $name);
+
+                $reply->isHTML(true);
+                $reply->Subject = "We Received Your Request – HDProClean";
+
+                $replyBody = emailTemplate(
+                    "Thank You for Contacting HDProClean",
+                    "
+                    Hi <strong>$name</strong>,<br><br>
+                    Thank you for contacting us.<br>
+                    Our team will get in touch with you soon.<br><br>
+
+                    <strong>Your Details:</strong><br>
+                    Phone: $phone<br>
+                    Service: $service_type<br><br>
+
+                    — HDProClean Support Team
+                    "
+                );
+
+                $reply->Body = $replyBody;
+                $reply->send();
+
+            } catch (Exception $e) {}
+        }
+
+        // Single output
+        echo json_encode(['status' => 'success', 'message' => 'Form submitted successfully']);
+    }
+    else {
+        echo json_encode(['status' => 'error', 'message' => 'Database error: '.$stmt->error]);
+    }
 
     $stmt->close();
 }
