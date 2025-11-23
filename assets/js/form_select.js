@@ -1,7 +1,7 @@
 // Wait for the DOM
 document.addEventListener("DOMContentLoaded", () => {
   // --- Elements ---
-  const contactForm = document.querySelector("#contact form");
+  const contactForm = document.querySelector("#contactForm");
   const bookingForm = document.getElementById("bookingForm");
   const bookingPopup = document.getElementById("bookingPopup");
   const successPopup = document.getElementById("successPopup");
