@@ -22,10 +22,10 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/modal.css">
     <link rel="stylesheet" href="assets/css/dark.css">
-    
+
 
     <!-- Fonts -->
-    
+
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -249,8 +249,7 @@
                 <img loading="lazy" src="/assets/img/air-duct-cleaning.jpg" alt="Air Duct Cleaning Service">
                 <h3>Air Duct Cleaning Service</h3>
                 <p>Coil, blower & antibacterial wash.</p>
-                <button class="view-details" 
-                    data-title="Air Duct Cleaning Service"
+                <button class="view-details" data-title="Air Duct Cleaning Service"
                     data-desc="Air duct cleaning includes coil cleaning, blower wash, antibacterial treatment, and drain cleaning.">
                     View Details
                 </button>
@@ -389,18 +388,18 @@
                 <p>Fill out the form and our team will contact you shortly.</p>
 
                 <form method="POST" action="/backened/config/db.php">
+                    <input type="hidden" name="form_type" value="contact">
+
                     <!-- Row 1: Name + Phone -->
                     <div class="row-2">
-                        <input type="hidden" name="form_type" value="contact">
-
                         <div class="input-group">
                             <label>Name</label>
-                            <input type="text" name="name" placeholder="Enter your name">
+                            <input type="text" name="name" placeholder="Enter your name" required>
                         </div>
 
                         <div class="input-group">
                             <label>Phone</label>
-                            <input type="text" name="phone" placeholder="Enter your phone number">
+                            <input type="text" name="phone" placeholder="Enter your phone number" required>
                         </div>
                     </div>
 
@@ -411,10 +410,10 @@
                             <input type="email" name="email" placeholder="Enter your email">
                         </div>
 
-                        <div class="input-group" id="service">
+                        <div class="input-group">
                             <label>Service Type</label>
-                            <select>
-                                <option>Select a service</option>
+                            <select name="serviceType" required>
+                                <option value="">Select a service</option>
                                 <option>Air Duct Cleaning</option>
                                 <option>HVAC Service</option>
                                 <option>Central Heating Service</option>
@@ -431,9 +430,10 @@
                         <textarea name="message" placeholder="Write your message"></textarea>
                     </div>
 
-                    <button class="submit-btn">Send Message</button>
+                    <button type="submit" class="submit-btn">Send Message</button>
                 </form>
             </div>
+
 
             <!-- Right: Contact Details -->
             <div class="contact-info">
@@ -509,40 +509,41 @@
             <a href="#" class="modal-btn">Book This Service</a>
         </div>
     </div>
-    
+
     <!-- BOOKING POPUP -->
-<div id="bookingPopup" class="popup-overlay">
-    <div class="popup-box">
-        <span class="popup-close" id="closeBooking">&times;</span>
-        <h2>Book a Service</h2>
-        <form id="bookingForm" method="POST" action="/backened/config/db.php">
-            <div class="form-group">
+    <div id="bookingPopup" class="popup-overlay">
+        <div class="popup-box">
+            <span class="popup-close" id="closeBooking">&times;</span>
+            <h2>Book a Service</h2>
+            <form id="bookingForm" method="POST" action="/backened/config/db.php">
                 <input type="hidden" name="form_type" value="booking">
 
-                <label for="serviceType">Service Type</label>
-                <input type="text" id="serviceType" name="serviceType" readonly>
-            </div>
-            <div class="form-group">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name" required>
-            </div>
-            <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="text" id="phone" name="phone" placeholder="Enter phone number" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email (Optional)</label>
-                <input type="email" id="email" name="email" placeholder="Enter email">
-            </div>
-            <div class="form-group">
-                <label for="message">Additional Details</label>
-                <textarea id="message" name="message" placeholder="Service details..." rows="4"></textarea>
-            </div>
-            <button type="submit" class="popup-btn">Confirm Booking</button>
-        </form>
+                <div class="form-group">
+                    <label for="serviceType">Service Type</label>
+                    <input type="text" id="serviceType" name="serviceType" readonly required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="text" id="phone" name="phone" placeholder="Enter phone number" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email (Optional)</label>
+                    <input type="email" id="email" name="email" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Additional Details</label>
+                    <textarea id="message" name="message" placeholder="Service details..." rows="4"></textarea>
+                </div>
+                <button type="submit" class="popup-btn">Confirm Booking</button>
+            </form>
+        </div>
     </div>
-</div>
-    
+
+
     <!-- SUCCESS POPUP -->
     <div id="successPopup" class="success-overlay">
         <div class="success-box">
