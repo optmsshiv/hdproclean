@@ -1,6 +1,4 @@
-// Wait for the DOM
 document.addEventListener("DOMContentLoaded", () => {
-  // --- Elements ---
   const contactForm = document.querySelector("#contactForm");
   const bookingForm = document.getElementById("bookingForm");
   const bookingPopup = document.getElementById("bookingPopup");
@@ -10,17 +8,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const contactBtn = document.getElementById("contactSubmitBtn");
   const contactSuccess = document.getElementById("contactSuccessMessage");
 
-  // --- Close booking popup ---
-  closeBooking.addEventListener("click", () => {
-    bookingPopup.style.display = "none";
-  });
+  if (closeBooking) {
+    closeBooking.addEventListener("click", () => {
+      bookingPopup.style.display = "none";
+    });
+  }
 
-  // --- Function to submit forms via AJAX ---
   function ajaxSubmit(form, formType) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      // Start loader only for contact form
       if (formType === "contact") {
         contactBtn.classList.add("loading");
         contactBtn.disabled = true;
@@ -33,9 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
         method: "POST",
         body: formData,
       })
-        .then((response) => response.json())
+        .then((res) => res.json())
         .then((data) => {
-          // Stop loader for contact form
           if (formType === "contact") {
             contactBtn.classList.remove("loading");
             contactBtn.disabled = false;
@@ -47,12 +43,12 @@ document.addEventListener("DOMContentLoaded", () => {
             if (formType === "booking") {
               bookingPopup.style.display = "none";
               successPopup.style.display = "flex";
-
               setTimeout(() => {
                 successPopup.style.display = "none";
               }, 3000);
-            }  if (formType === "contact") {
-              // Show success message below button
+            }
+
+            if (formType === "contact") {
               contactSuccess.innerHTML =
                 "<strong>Thank you!</strong> Your message has been submitted. Our team will contact you shortly.";
               contactSuccess.style.display = "block";
@@ -65,19 +61,13 @@ document.addEventListener("DOMContentLoaded", () => {
             alert(data.message);
           }
         })
-        .catch((error) => {
-          console.error("Error:", error);
+        .catch((err) => {
+          console.error(err);
           alert("Something went wrong. Please try again.");
-
-          if (formType === "contact") {
-            contactBtn.classList.remove("loading");
-            contactBtn.disabled = false;
-          }
         });
     });
   }
 
-  // Attach AJAX submit to both forms
   if (contactForm) ajaxSubmit(contactForm, "contact");
   if (bookingForm) ajaxSubmit(bookingForm, "booking");
 });
