@@ -493,9 +493,6 @@
         </div>
     </section>
 
-
-
-
     <!-- FOOTER -->
     <footer class="site-footer">
         <p>© <span id="year"></span> HDProCleaning — Professional Cleaning Services</p>
@@ -505,7 +502,6 @@
     <!-- BOOK NOW BUTTON -->
     <a id="contact" class="book-now">Get a quote</a>
 
-    <!-- SERVICE MODAL -->
     <!-- SERVICE MODAL (Single modal reused for all cards) -->
     <div id="serviceModal" class="modal">
         <div class="modal-content">
@@ -517,19 +513,35 @@
     </div>
     
     <!-- BOOKING POPUP -->
-    <div id="bookingPopup" class="popup-overlay">
-        <div class="popup-box">
-            <span class="popup-close" id="closeBooking">&times;</span>
-            <h2>Book a Service</h2>
-            <form id="bookingForm">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="text" name="phone" placeholder="Phone Number" required>
-                <input type="email" name="email" placeholder="Email (Optional)">
-                <textarea name="message" placeholder="Service details..." rows="4"></textarea>
-                <button type="submit" class="popup-btn">Confirm Booking</button>
-            </form>
-        </div>
+<div id="bookingPopup" class="popup-overlay">
+    <div class="popup-box">
+        <span class="popup-close" id="closeBooking">&times;</span>
+        <h2>Book a Service</h2>
+        <form id="bookingForm">
+            <div class="form-group">
+                <label for="serviceType">Service Type</label>
+                <input type="text" id="serviceType" name="serviceType" readonly>
+            </div>
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" name="phone" placeholder="Enter phone number" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email (Optional)</label>
+                <input type="email" id="email" name="email" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="message">Additional Details</label>
+                <textarea id="message" name="message" placeholder="Service details..." rows="4"></textarea>
+            </div>
+            <button type="submit" class="popup-btn">Confirm Booking</button>
+        </form>
     </div>
+</div>
     
     <!-- SUCCESS POPUP -->
     <div id="successPopup" class="success-overlay">

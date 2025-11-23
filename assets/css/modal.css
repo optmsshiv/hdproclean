@@ -1,3 +1,4 @@
+/* POPUPS & MODAL */
 .modal,
 .popup-overlay,
 .success-overlay {
@@ -9,6 +10,8 @@
     align-items: center;
     z-index: 999999;
     opacity: 0;
+    pointer-events: none;
+    /* prevent click when hidden */
     transition: opacity 0.3s ease;
 }
 
@@ -17,8 +20,10 @@
 .success-overlay.show {
     display: flex;
     opacity: 1;
+    pointer-events: auto;
 }
 
+/* Content animations */
 .modal-content,
 .popup-box,
 .success-box {
@@ -30,15 +35,18 @@
     text-align: center;
     position: relative;
     transform: scale(0.8);
-    transition: transform 0.3s ease;
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .modal.show .modal-content,
 .popup-overlay.show .popup-box,
 .success-overlay.show .success-box {
     transform: scale(1);
+    opacity: 1;
 }
 
+/* Close buttons */
 .modal-close,
 .popup-close {
     position: absolute;
@@ -48,6 +56,7 @@
     cursor: pointer;
 }
 
+/* Buttons */
 .modal-btn,
 .popup-btn {
     display: inline-block;
@@ -60,12 +69,92 @@
     cursor: pointer;
 }
 
+/* Success icon */
 .success-icon {
     font-size: 40px;
     color: green;
     margin-bottom: 1rem;
 }
 
+/* Scroll lock */
 body.popup-open {
     overflow: hidden;
+}
+
+.popup-box {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 90%;
+    text-align: left;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transform: scale(0.8);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.popup-overlay.show .popup-box {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.popup-close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #0b2540;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #0b2540;
+    box-shadow: 0 0 5px rgba(11, 37, 64, 0.3);
+}
+
+.popup-btn {
+    display: block;
+    width: 100%;
+    padding: 0.7rem;
+    background: #0b2540;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.popup-btn:hover {
+    background: #09203a;
 }
