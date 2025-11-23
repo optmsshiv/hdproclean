@@ -430,7 +430,11 @@
                         <textarea name="message" placeholder="Write your message"></textarea>
                     </div>
 
-                    <button type="submit" class="submit-btn">Send Message</button>
+                    <button type="submit" class="submit-btn" id="contactSubmitBtn">
+                        <span class="btn-text">Send Message</span>
+                        <span class="btn-loader"></span>
+                    </button>
+                    <div id="contactSuccessMessage" class="success-msg"></div>
                 </form>
             </div>
 
@@ -538,7 +542,11 @@
                     <label for="message">Additional Details</label>
                     <textarea id="message" name="message" placeholder="Service details..." rows="4"></textarea>
                 </div>
-                <button type="submit" class="popup-btn">Confirm Booking</button>
+                <button type="submit" class="popup-btn" id="bookingSubmitBtn">
+                    <span class="btn-text">Confirm Booking</span>
+                    <span class="btn-loader"></span>
+                </button>
+
             </form>
         </div>
     </div>

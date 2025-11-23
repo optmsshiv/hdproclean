@@ -61,6 +61,12 @@ document.addEventListener("DOMContentLoaded", () => {
   bookingForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
+    const submitBtn = document.getElementById("bookingSubmitBtn");
+
+    // Start loader
+    submitBtn.classList.add("loading");
+    submitBtn.disabled = true;
+
     let formData = new FormData(bookingForm);
 
     fetch("/backened/config/db.php", {
@@ -69,6 +75,10 @@ document.addEventListener("DOMContentLoaded", () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        // Stop loader
+        submitBtn.classList.remove("loading");
+        submitBtn.disabled = false;
+        
         if (data.status === "success") {
           closeBookingFunc();
 
