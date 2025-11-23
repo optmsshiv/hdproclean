@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
               setTimeout(() => {
                 successPopup.style.display = "none";
               }, 3000);
-            } else if (formType === "contact") {
+            }  if (formType === "contact") {
               // Show success message below button
               contactSuccess.innerHTML =
                 "<strong>Thank you!</strong> Your message has been submitted. Our team will contact you shortly.";
