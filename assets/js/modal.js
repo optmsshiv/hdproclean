@@ -68,6 +68,8 @@ document.addEventListener("DOMContentLoaded", () => {
     submitBtn.disabled = true;
 
     let formData = new FormData(bookingForm);
+    console.log("FETCH CALL TRIGGERED");
+
 
     fetch("/backened/config/db.php", {
       method: "POST",
