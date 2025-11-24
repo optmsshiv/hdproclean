@@ -50,6 +50,9 @@ document.addEventListener("DOMContentLoaded", () => {
     body.classList.remove("popup-open");
   };
   closeBooking.addEventListener("click", closeBookingFunc);
+
+  console.log("ADDING SUBMIT LISTENER");
+
   bookingPopup.addEventListener("click", (e) => {
     if (e.target === bookingPopup) closeBookingFunc();
   });
@@ -68,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     submitBtn.disabled = true;
 
     let formData = new FormData(bookingForm);
-    console.log("FETCH CALL TRIGGERED");
+    
 
 
     fetch("/backened/config/db.php", {
