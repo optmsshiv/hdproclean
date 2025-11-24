@@ -1,5 +1,3 @@
-console.log("JS FILE LOADED");
-
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
 
@@ -52,8 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
     body.classList.remove("popup-open");
   };
   closeBooking.addEventListener("click", closeBookingFunc);
-
-  console.log("ADDING SUBMIT LISTENER");
 
   bookingPopup.addEventListener("click", (e) => {
     if (e.target === bookingPopup) closeBookingFunc();
