@@ -67,9 +67,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($stmt->execute()) {
 
         // Load PHPMailer
-        require __DIR__ . '/PHPMailer/src/PHPMailer.php';
-        require __DIR__ . '/PHPMailer/src/SMTP.php';
-        require __DIR__ . '/PHPMailer/src/Exception.php';
+        require __DIR__ . '/../PHPMailer/src/PHPMailer.php';
+        require __DIR__ . '/../PHPMailer/src/SMTP.php';
+        require __DIR__ . '/../PHPMailer/src/Exception.php';
 
         // -------------------------
         // 1️⃣ SEND ADMIN EMAIL
