@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $mail->addAddress('help.listmybusiness@gmail.com');
 
             $mail->isHTML(true);
-            $mail->Subject = "New Contact Submission – HDProClean";
+            $mail->Subject = "New Contact Submission  HDProClean";
 
             $adminBody = emailTemplate(
                 "New Contact Request",
@@ -127,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $reply->addAddress($email, $name);
 
                 $reply->isHTML(true);
-                $reply->Subject = "We Received Your Request – HDProClean";
+                $reply->Subject = "We Received Your Request  HDProClean";
 
                 $replyBody = emailTemplate(
                     "Thank You for Contacting HDProClean",
