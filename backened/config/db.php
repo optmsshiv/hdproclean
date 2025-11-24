@@ -31,7 +31,7 @@ function emailTemplate($title, $content) {
     <div style='background:#f5f7fa;padding:30px;font-family:Arial,sans-serif;color:#333;'>
         <div style='max-width:600px;margin:0 auto;background:#fff;border-radius:10px;overflow:hidden;border:1px solid #ddd;'>
 
-            <div style='background:#0b2540;padding:20px;text-align:center;'>
+            <div style='background:#e5e5e5;padding:20px;text-align:center;'>
                 <img src='https://hdproclean.us/assets/logo/logo.png' style='max-width:160px;'>
             </div>
 
