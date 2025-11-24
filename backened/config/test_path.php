@@ -1,7 +1,7 @@
 <?php
 echo "<h3>Testing PHPMailer Path</h3>";
 
-$path = __DIR__ . "/../PHPMailer/src/PHPMailer.php";
+$path = __DIR__ . "/../../PHPMailer/src/PHPMailer.php";
 
 echo "Using path: $path<br>";
 
