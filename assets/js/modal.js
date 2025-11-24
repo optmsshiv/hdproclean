@@ -1,3 +1,5 @@
+console.log("JS FILE LOADED");
+
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
 
@@ -71,8 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
     submitBtn.disabled = true;
 
     let formData = new FormData(bookingForm);
-    
-
 
     fetch("/backened/config/db.php", {
       method: "POST",
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Stop loader
         submitBtn.classList.remove("loading");
         submitBtn.disabled = false;
-        
+
         if (data.status === "success") {
           closeBookingFunc();
 
