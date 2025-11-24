@@ -32,7 +32,7 @@ function emailTemplate($title, $content) {
         <div style='max-width:600px;margin:0 auto;background:#fff;border-radius:10px;overflow:hidden;border:1px solid #ddd;'>
 
             <div style='background:#0b2540;padding:20px;text-align:center;'>
-                <img src='https://hdprocleaning.us/assets/logo/logo.png' style='max-width:160px;'>
+                <img src='https://hdproclean.us/assets/logo/logo.png' style='max-width:160px;'>
             </div>
 
             <div style='padding:25px;'>
@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $mail->SMTPSecure = 'tls';
             $mail->Port       = 587;
 
-            $mail->setFrom('no-reply@hdprocleaning.us', 'HDProClean');
+            $mail->setFrom('no-reply@hdproclean.us', 'HDProClean');
             $mail->addAddress('help.listmybusiness@gmail.com');
 
             $mail->isHTML(true);
@@ -123,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $reply->SMTPSecure = 'tls';
                 $reply->Port       = 587;
 
-                $reply->setFrom('info@hdprocleaning.us', 'HDProClean');
+                $reply->setFrom('info@hdproclean.us', 'HDProClean');
                 $reply->addAddress($email, $name);
 
                 $reply->isHTML(true);
