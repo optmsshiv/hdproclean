@@ -69,15 +69,9 @@ Header always set X-Content-Type-Options "nosniff"
 Header always set X-XSS-Protection "1; mode=block"
 Header always set X-Frame-Options "SAMEORIGIN"
 Header always set Referrer-Policy "no-referrer-when-downgrade"
-
-Header always set Content-Security-Policy "default-src 'self';
-    img-src 'self' data: https:;
-    script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net;
-    style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
-    font-src 'self' data: https://cdnjs.cloudflare.com https://fonts.gstatic.com;
-    connect-src 'self';
-    frame-ancestors 'self';"
+Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' data: https://cdnjs.cloudflare.com https://fonts.gstatic.com; connect-src 'self'; frame-ancestors 'self';"
 </IfModule>
+
 
 # -----------------------------------
 # Disable Directory Browsing
