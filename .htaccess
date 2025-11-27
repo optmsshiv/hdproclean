@@ -21,8 +21,8 @@ RewriteRule ^(.*)$ https://%1/$1 [R=301, L]
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteCond % { REQUEST_FILENAME } !-d
-RewriteCond % { REQUEST_FILENAME }.html -f
-RewriteRule ^(.+)$ $1.html [L]
+RewriteCond % { REQUEST_FILENAME }\.html -f
+RewriteRule ^(.*)$ $1.html [L]
 </IfModule>
 
 # -----------------------------------
@@ -32,7 +32,7 @@ ErrorDocument 404 /404.html
 ErrorDocument 403 /403.html
 
 # -----------------------------------
-# Enable Gzip Compression
+# Gzip Compression
 # -----------------------------------
 <IfModule mod_deflate.c>
 AddOutputFilterByType DEFLATE text/plain
@@ -62,7 +62,7 @@ ExpiresByType text/html "access plus 1 hour"
 </IfModule>
 
 # -----------------------------------
-# Security Headers (CSP OK for CDNs)
+# Security Headers + CSP
 # -----------------------------------
 <IfModule mod_headers.c>
 Header always set X-Content-Type-Options "nosniff"
@@ -71,7 +71,6 @@ Header always set X-Frame-Options "SAMEORIGIN"
 Header always set Referrer-Policy "no-referrer-when-downgrade"
 Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' data: https://cdnjs.cloudflare.com https://fonts.gstatic.com; connect-src 'self'; frame-ancestors 'self';"
 </IfModule>
-
 
 # -----------------------------------
 # Disable Directory Browsing
