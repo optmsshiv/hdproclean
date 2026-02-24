@@ -33,7 +33,7 @@ if (mobileMenu && navLinks) {
   });
 }
 
-/* ---------- NAVBAR SHRINK ON SCROLL ---------- */
+/* ---------- NAVBAR SHRINK ON SCROLL 
 const navbar = document.getElementById("navbar");
 window.addEventListener("scroll", () => {
   if (!navbar) return;
@@ -44,7 +44,21 @@ window.addEventListener("scroll", () => {
     navbar.classList.remove("shrink");
     gsap.to(navbar, { padding: "1.1rem 2rem", duration: 0.25 });
   }
+}); ---------- */
+
+/* ---------- NAVBAR SHRINK ON SCROLL ---------- */
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+  if (!navbar) return;
+
+  if (window.scrollY > 90) {
+    navbar.classList.add("shrink");
+  } else {
+    navbar.classList.remove("shrink");
+  }
 });
+
 
 /* ---------- GSAP ANIMATIONS ---------- */
 if (typeof gsap !== "undefined") {

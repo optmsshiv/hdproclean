@@ -66,8 +66,8 @@ body {
 /* Shrink Effect */
 #navbar.shrink {
     padding: 0.4rem 2rem;
-    /* Smaller padding when scrolled */
-    background: linear-gradient(90deg, #01c3cc, #2b8ed5, #4b67dc, #6d3ee5);
+    /* Smaller padding when scrolled 
+    background: linear-gradient(90deg, #01c3cc, #2b8ed5, #4b67dc, #6d3ee5);*/
 }
 
 /* Logo + Header Container */
