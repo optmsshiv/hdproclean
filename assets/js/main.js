@@ -22,35 +22,6 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 }); 
 
-/* ---------- SMOOTH SCROLL WITH CHECKS 
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    const href = this.getAttribute("href");
-
-    // 1. If href is just "#", scroll to top and stop
-    if (href === "#") {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      return;
-    }
-
-    // 2. Otherwise, try to find the target element
-    const target = document.querySelector(href);
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: "smooth" });
-
-      // Close mobile menu on click
-      const navLinks = document.querySelector(".nav-links");
-      if (navLinks) navLinks.classList.remove("show");
-    }
-  });
-});
----------- */
-
-
-
-
 
 /* ---------- MOBILE MENU TOGGLE ---------- */
 const mobileMenu = document.getElementById("mobileMenu");
