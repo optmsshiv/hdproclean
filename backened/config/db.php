@@ -6,14 +6,6 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// 1. Check for Honeypot Spam
-if (!empty($_POST['website_url'])) {
-    // If it's filled, it's a bot. We exit silently so the bot thinks it succeeded.
-    header('Content-Type: application/json');
-    echo json_encode(['status' => 'success', 'message' => 'Spam filtered']);
-    exit;
-}
-
 // Database credentials
 $host = "localhost";
 $db   = "edrppymy_hdprocleaning";
