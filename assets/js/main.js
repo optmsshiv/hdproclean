@@ -10,7 +10,7 @@ window.addEventListener("load", () => {
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-/* ---------- SMOOTH SCROLL 
+/* ---------- SMOOTH SCROLL---------- */
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
@@ -20,9 +20,9 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     const navLinks = document.querySelector(".nav-links");
     navLinks && navLinks.classList.remove("show");
   });
-}); ---------- */
+}); 
 
-/* ---------- SMOOTH SCROLL WITH CHECKS ---------- */
+/* ---------- SMOOTH SCROLL WITH CHECKS 
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     const href = this.getAttribute("href");
@@ -46,7 +46,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     }
   });
 });
-
+---------- */
 
 
 
