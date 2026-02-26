@@ -26,54 +26,60 @@ document.addEventListener("DOMContentLoaded", () => {
         contactBtn.disabled = true;
       }
 
-      const formData = new FormData(form);
-      formData.append("form_type", formType);
+      grecaptcha.ready(function () {
 
-      fetch("/backened/config/db.php", {
-        method: "POST",
-        body: formData,
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          // Stop loader for contact form
-          if (formType === "contact") {
-            contactBtn.classList.remove("loading");
-            contactBtn.disabled = false;
-          }
+        grecaptcha.execute('6Lfv4HgsAAAAABM3fO6ktCVZgPJyBvynkkpBaKtL', { action: 'submit' }).then(function (token) {
 
-          if (data.status === "success") {
-            form.reset();
+          const formData = new FormData(form);
+          formData.append("form_type", formType);
 
-            if (formType === "booking") {
-              bookingPopup.style.display = "none";
-              successPopup.style.display = "flex";
+          fetch("/backened/config/db.php", {
+            method: "POST",
+            body: formData,
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              // Stop loader for contact form
+              if (formType === "contact") {
+                contactBtn.classList.remove("loading");
+                contactBtn.disabled = false;
+              }
 
-              setTimeout(() => {
-                successPopup.style.display = "none";
-              }, 3000);
-            } else if (formType === "contact") {
-              // Show success message below button
-              contactSuccess.innerHTML =
-                "<strong>Thank you!</strong> Your message has been submitted. Our team will contact you shortly.";
-              contactSuccess.style.display = "block";
+              if (data.status === "success") {
+                form.reset();
 
-              setTimeout(() => {
-                contactSuccess.style.display = "none";
-              }, 4000);
-            }
-          } else {
-            alert(data.message);
-          }
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-          alert("Something went wrong. Please try again.");
+                if (formType === "booking") {
+                  bookingPopup.style.display = "none";
+                  successPopup.style.display = "flex";
 
-          if (formType === "contact") {
-            contactBtn.classList.remove("loading");
-            contactBtn.disabled = false;
-          }
+                  setTimeout(() => {
+                    successPopup.style.display = "none";
+                  }, 3000);
+                } else if (formType === "contact") {
+                  // Show success message below button
+                  contactSuccess.innerHTML =
+                    "<strong>Thank you!</strong> Your message has been submitted. Our team will contact you shortly.";
+                  contactSuccess.style.display = "block";
+
+                  setTimeout(() => {
+                    contactSuccess.style.display = "none";
+                  }, 4000);
+                }
+              } else {
+                alert(data.message);
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              alert("Something went wrong. Please try again.");
+
+              if (formType === "contact") {
+                contactBtn.classList.remove("loading");
+                contactBtn.disabled = false;
+              }
+            });
         });
+      });
     });
   }
 
