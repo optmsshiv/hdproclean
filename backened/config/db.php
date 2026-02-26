@@ -51,6 +51,28 @@ function emailTemplate($title, $content) {
 // Handle POST request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+
+        $captcha = $_POST['g-recaptcha-response'] ?? '';
+
+$secretKey = "6Lfv4HgsAAAAAG6jijncVeixGbxBVor1Jj0xAsOs";
+
+$verify = file_get_contents(
+ "https://www.google.com/recaptcha/api/siteverify?secret=".$secretKey."&response=".$captcha
+);
+
+$responseData = json_decode($verify);
+
+if(!$responseData->success){
+
+ echo json_encode([
+   'status'=>'error',
+   'message'=>'Captcha verification failed'
+ ]);
+
+ exit;
+
+}
+
     // ======================
     // SECURITY FIREWALL
     // ======================
@@ -108,31 +130,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email        = clean($_POST['email']     ?? '', $conn);
     $service_type = clean($_POST['serviceType'] ?? '', $conn);
     $message      = clean($_POST['message']   ?? '', $conn);
-
-
-    // Google reCAPTCHA v3 verification
-    $secret = "6Lfv4HgsAAAAAG6jijncVeixGbxBVor1Jj0xAsOs";
-
-$response = $_POST['g-recaptcha-response'] ?? '';
-
-$verify = file_get_contents(
-
-"https://www.google.com/recaptcha/api/siteverify?secret=".$secret."&response=".$response
-
-);
-
-$captcha = json_decode($verify);
-
-if(!$captcha->success || $captcha->score < 0.5){
-
- echo json_encode([
- 'status'=>'error',
- 'message'=>'Bot blocked'
- ]);
-
- exit;
-
-}
 
     // Insert into DB
     $stmt = $conn->prepare("INSERT INTO contacts_bookings (form_type, name, phone, email, service_type, message)
