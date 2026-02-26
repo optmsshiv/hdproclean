@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Token check
-    echo json_encode($_POST);
+    echo md5('hdproclean_secure');
     exit;
 
     // Spam keyword filter
