@@ -116,11 +116,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($stmt->execute()) {
 
-        // Load PHPMailer
-        require __DIR__ . '/../../PHPMailer/src/PHPMailer.php';
-        require __DIR__ . '/../../PHPMailer/src/SMTP.php';
-        require __DIR__ . '/../../PHPMailer/src/Exception.php';
-
         // Email limit per IP (max 5 emails)
 
             $emailLimitFile = __DIR__.'/mail_limit_'.$ip.'.txt';
@@ -141,6 +136,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
 
                 file_put_contents($emailLimitFile,$count+1);
+
+        // Load PHPMailer
+        require __DIR__ . '/../../PHPMailer/src/PHPMailer.php';
+        require __DIR__ . '/../../PHPMailer/src/SMTP.php';
+        require __DIR__ . '/../../PHPMailer/src/Exception.php';
 
         // -------------------------
         // 1️⃣ SEND ADMIN EMAIL
