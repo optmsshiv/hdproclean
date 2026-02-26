@@ -476,11 +476,13 @@
             <div class="contact-form" id="contact">
                 <h2>Get In Touch</h2>
                 <p>Fill out the form and our team will contact you shortly.</p>
-
-                <form method="POST" id="contactForm" action="/backened/config/db.php">
+                    <!-- Form 
+                <form method="POST" id="contactForm" action="/backened/config/db.php"> -->
+                <form method="POST" id="contactForm">
                     <input type="hidden" name="form_type" value="contact">
                     <input type="text" name="website" style="display:none">
-                    <input type="hidden" name="form_token" value="<?php echo md5('hdproclean_secure'); ?>">
+                    
+                    <input type="hidden" name="form_token" value="5f4cc8a60a5faec1d7b05e54e5ab0f2e">
 
                     <!-- Row 1: Name + Phone -->
                     <div class="row-2">
@@ -647,7 +649,8 @@
             <form id="bookingForm" method="POST">
                 <input type="hidden" name="form_type" value="booking">
                 <input type="text" name="website" style="display:none">
-                <input type="hidden" name="form_token" value="<?php echo md5('hdproclean_secure'); ?>">
+
+                <input type="hidden" name="form_token" value="5f4cc8a60a5faec1d7b05e54e5ab0f2e">
 
                 <div class="form-group">
                     <label for="serviceType">Service Type</label>
