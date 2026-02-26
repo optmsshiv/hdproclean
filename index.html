@@ -5,12 +5,14 @@
     <meta charset="UTF-8" />
 
     <!-- Updated Content Security Policy to allow Font Awesome icons -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self';
-        script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://www.google.com https://www.gstatic.com;
-        style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;
-        img-src 'self' data: https:;
-        frame-src https://www.google.com https://www.gstatic.com;
-        connect-src 'self' https://www.google.com;">
+    <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://www.google.com https://www.gstatic.com;
+    style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+    img-src 'self' data: https:;
+    font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:;
+    frame-src https://www.google.com https://www.gstatic.com;
+    connect-src 'self' https://www.google.com;">
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
