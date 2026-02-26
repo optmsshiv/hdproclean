@@ -10,7 +10,7 @@ error_reporting(E_ALL);
 $host = "localhost";
 $db   = "edrppymy_hdprocleaning";
 $user = "edrppymy_hdproclean";
-$pass = "123@Hdproclean";
+$pass = "135#@Hdproclean";
 
 // Create connection
 $conn = new mysqli($host, $user, $pass, $db);
@@ -51,6 +51,56 @@ function emailTemplate($title, $content) {
 // Handle POST request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+    // ======================
+    // SECURITY FIREWALL
+    // ======================
+
+    $ip = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
+
+    // Honeypot trap
+    if(!empty($_POST['website'])){
+     echo json_encode(['status'=>'error','message'=>'Bot detected']);
+     exit;
+    }
+
+    // Token check
+    if(($_POST['form_token'] ?? '') !== md5('hdproclean_secure')){
+     echo json_encode(['status'=>'error','message'=>'Invalid request']);
+     exit;
+    }
+
+    // Spam keyword filter
+    $spamWords = ['viagra','casino','crypto','loan','sex','porn'];
+
+    foreach($spamWords as $word){
+     if(stripos($_POST['message'] ?? '', $word)!==false){
+      echo json_encode(['status'=>'error','message'=>'Spam blocked']);
+      exit;
+     }
+    }
+
+    // Rate limit (1 request per 30 sec)
+    $cooldownFile = __DIR__.'/rate_'.$ip.'.txt';
+
+    if(file_exists($cooldownFile)){
+
+     $last = file_get_contents($cooldownFile);
+
+     if(time()-$last < 30){
+
+     echo json_encode([
+      'status'=>'error',
+      'message'=>'Please wait before submitting again.'
+     ]);
+
+     exit;
+
+     }
+
+    }
+
+    file_put_contents($cooldownFile,time());
+
     $form_type = isset($_POST['form_type']) ? clean($_POST['form_type'], $conn) : 'contact';
 
     $name         = clean($_POST['name']      ?? '', $conn);
@@ -70,6 +120,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         require __DIR__ . '/../../PHPMailer/src/PHPMailer.php';
         require __DIR__ . '/../../PHPMailer/src/SMTP.php';
         require __DIR__ . '/../../PHPMailer/src/Exception.php';
+
+        // Email limit per IP (max 5 emails)
+
+            $emailLimitFile = __DIR__.'/mail_limit_'.$ip.'.txt';
+
+                $count = file_exists($emailLimitFile)
+                 ? (int)file_get_contents($emailLimitFile)
+                 : 0;
+
+                if($count > 5){
+
+                 echo json_encode([
+                 'status'=>'success',
+                 'message'=>'Saved without email'
+                 ]);
+
+                 exit;
+
+                }
+
+                file_put_contents($emailLimitFile,$count+1);
 
         // -------------------------
         // 1️⃣ SEND ADMIN EMAIL

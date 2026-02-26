@@ -479,6 +479,8 @@
 
                 <form method="POST" id="contactForm" action="/backened/config/db.php">
                     <input type="hidden" name="form_type" value="contact">
+                    <input type="text" name="website" style="display:none">
+                    <input type="hidden" name="form_token" value="<?php echo md5('hdproclean_secure'); ?>">
 
                     <!-- Row 1: Name + Phone -->
                     <div class="row-2">
@@ -644,6 +646,8 @@
             <h2>Book a Service</h2>
             <form id="bookingForm" method="POST">
                 <input type="hidden" name="form_type" value="booking">
+                <input type="text" name="website" style="display:none">
+                <input type="hidden" name="form_token" value="<?php echo md5('hdproclean_secure'); ?>">
 
                 <div class="form-group">
                     <label for="serviceType">Service Type</label>
