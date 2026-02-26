@@ -64,8 +64,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Token check
-    echo md5('hdproclean_secure');
-    exit;
+    if(($_POST['form_token'] ?? '') !== md5('hdproclean_secure')){
+     echo json_encode(['status'=>'error','message'=>'Invalid request']);
+     exit;
+    }
 
     // Spam keyword filter
     $spamWords = ['viagra','casino','crypto','loan','sex','porn'];
