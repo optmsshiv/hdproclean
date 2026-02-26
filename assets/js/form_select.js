@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           const formData = new FormData(form);
           formData.append("form_type", formType);
+          formData.append("g-recaptcha-response", token);
 
           fetch("/backened/config/db.php", {
             method: "POST",
