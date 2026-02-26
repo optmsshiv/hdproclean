@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Token check
-    if(($_POST['form_token'] ?? '') !== md5('hdproclean_secure')){
+    if(($_POST['form_token'] ?? '') !== md5('5f4cc8a60a5faec1d7b05e54e5ab0f2e')){
      echo json_encode(['status'=>'error','message'=>'Invalid request']);
      exit;
     }
