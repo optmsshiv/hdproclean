@@ -68,37 +68,43 @@ document.addEventListener("DOMContentLoaded", () => {
     submitBtn.classList.add("loading");
     submitBtn.disabled = true;
 
-    let formData = new FormData(bookingForm);
+    grecaptcha.ready(function () {
+      grecaptcha.execute('6Lfv4HgsAAAAABM3fO6ktCVZgPJyBvynkkpBaKtL', { action: 'submit' }).then(function (token) {
+        
+        let formData = new FormData(bookingForm);
+        formData.append("g-recaptcha-response", token);
 
-    fetch("/backened/config/db.php", {
-      method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        // Stop loader
-        submitBtn.classList.remove("loading");
-        submitBtn.disabled = false;
+        fetch("/backened/config/db.php", {
+          method: "POST",
+          body: formData,
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            // Stop loader
+            submitBtn.classList.remove("loading");
+            submitBtn.disabled = false;
 
-        if (data.status === "success") {
-          closeBookingFunc();
+            if (data.status === "success") {
+              closeBookingFunc();
 
-          successPopup.classList.add("show");
-          body.classList.add("popup-open");
+              successPopup.classList.add("show");
+              body.classList.add("popup-open");
 
-          // Clear form after success
-          setTimeout(() => {
-            successPopup.classList.remove("show");
-            body.classList.remove("popup-open");
-            bookingForm.reset();
-          }, 2500);
-        } else {
-          alert("Error: " + data.message);
-        }
-      })
-      .catch((err) => {
-        alert("Network error: " + err);
+              // Clear form after success
+              setTimeout(() => {
+                successPopup.classList.remove("show");
+                body.classList.remove("popup-open");
+                bookingForm.reset();
+              }, 2500);
+            } else {
+              alert("Error: " + data.message);
+            }
+          })
+          .catch((err) => {
+            alert("Network error: " + err);
+          });
       });
+    });
   });
 });
 

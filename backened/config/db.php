@@ -50,28 +50,24 @@ function emailTemplate($title, $content) {
 
 // Handle POST request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-
         $captcha = $_POST['g-recaptcha-response'] ?? '';
+        $secretKey = "6Lfv4HgsAAAAAG6jijncVeixGbxBVor1Jj0xAsOs";
+        $verify = file_get_contents(
+        "https://www.google.com/recaptcha/api/siteverify?secret=".$secretKey."&response=".$captcha
+    );
 
-$secretKey = "6Lfv4HgsAAAAAG6jijncVeixGbxBVor1Jj0xAsOs";
+    $responseData = json_decode($verify);
 
-$verify = file_get_contents(
- "https://www.google.com/recaptcha/api/siteverify?secret=".$secretKey."&response=".$captcha
-);
+    if(!$responseData->success){
 
-$responseData = json_decode($verify);
+    echo json_encode([
+        'status'=>'error',
+        'message'=>'Captcha verification failed'
+        ]);
 
-if(!$responseData->success){
+        exit;
 
- echo json_encode([
-   'status'=>'error',
-   'message'=>'Captcha verification failed'
- ]);
-
- exit;
-
-}
+    }
 
     // ======================
     // SECURITY FIREWALL
