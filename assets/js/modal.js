@@ -69,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
       grecaptcha.execute('6Lfv4HgsAAAAABM3fO6ktCVZgPJyBvynkkpBaKtL', { action: 'submit' }).then(function (token) {
 
         let formData = new FormData(bookingForm);
+        formData.append("form_type", "booking");        // ← FIX: was missing, caused captcha failure
         formData.append("g-recaptcha-response", token);
 
         fetch("/backened/config/db.php", {
@@ -83,7 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (data.status === "success") {
               bookingForm.reset();
-              // Redirect to thank-you page with type param
               window.location.href = "/thank-you.html?type=booking";
             } else {
               alert("Error: " + data.message);
