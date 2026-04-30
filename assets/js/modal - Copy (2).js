@@ -56,6 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Handle form submission (SEND TO DATABASE)
+  const successPopup = document.getElementById("successPopup");
+
   bookingForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -82,9 +84,17 @@ document.addEventListener("DOMContentLoaded", () => {
             submitBtn.disabled = false;
 
             if (data.status === "success") {
-              bookingForm.reset();
-              // Redirect to thank-you page with type param
-              window.location.href = "/thank-you.html?type=booking";
+              closeBookingFunc();
+
+              successPopup.classList.add("show");
+              body.classList.add("popup-open");
+
+              // Clear form and hide success popup after delay
+              setTimeout(() => {
+                successPopup.classList.remove("show");
+                body.classList.remove("popup-open");
+                bookingForm.reset();
+              }, 2500);
             } else {
               alert("Error: " + data.message);
             }

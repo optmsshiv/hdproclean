@@ -34,8 +34,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
               if (data.status === "success") {
                 form.reset();
-                // Redirect to thank-you page with type param
-                window.location.href = "/thank-you.html?type=contact";
+
+                // Show success message below button
+                contactSuccess.innerHTML =
+                  "<strong>Thank you!</strong> Your message has been submitted. Our team will contact you shortly.";
+                contactSuccess.style.display = "block";
+
+                setTimeout(() => {
+                  contactSuccess.style.display = "none";
+                }, 4000);
               } else {
                 alert(data.message);
               }
