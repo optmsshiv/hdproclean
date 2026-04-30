@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     closeModalFunc();
     serviceField.value = currentService;
-    messageField.value = currentService;
+    messageField.value = currentService; // optional, can be removed if not needed
     bookingPopup.classList.add("show");
     body.classList.add("popup-open");
   });
@@ -55,9 +55,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target === bookingPopup) closeBookingFunc();
   });
 
-  // Handle form submission (SEND TO DATABASE)
+  // Handle form submission
   const successPopup = document.getElementById("successPopup");
 
+  // Handle form submission (SEND TO DATABASE)
   bookingForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -69,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     grecaptcha.ready(function () {
       grecaptcha.execute('6Lfv4HgsAAAAABM3fO6ktCVZgPJyBvynkkpBaKtL', { action: 'submit' }).then(function (token) {
-
+        
         let formData = new FormData(bookingForm);
         formData.append("g-recaptcha-response", token);
 
@@ -89,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
               successPopup.classList.add("show");
               body.classList.add("popup-open");
 
-              // Clear form and hide success popup after delay
+              // Clear form after success
               setTimeout(() => {
                 successPopup.classList.remove("show");
                 body.classList.remove("popup-open");
@@ -100,13 +101,15 @@ document.addEventListener("DOMContentLoaded", () => {
             }
           })
           .catch((err) => {
-            submitBtn.classList.remove("loading");
-            submitBtn.disabled = false;
             alert("Network error: " + err);
           });
       });
     });
   });
 });
-// NOTE: The stray successPopup setTimeout that was here has been removed.
-// It was firing on page load and could interfere with popup state.
+
+// Close success popup after 3 seconds
+const successPopup = document.getElementById("successPopup");
+setTimeout(() => {
+  successPopup.classList.remove("show");
+}, 3000);
