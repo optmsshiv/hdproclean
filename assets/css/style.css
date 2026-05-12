@@ -1390,3 +1390,22 @@ footer {
     stroke: currentColor;
     /* ensures stroke uses the color property */
 }
+
+ /* Contact items */
+.f-contact-items {
+    color: #060f1e;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.f-contact-items p {
+    margin: 2px;
+    transition: all 0.3s ease;
+}
+
+.f-contact-items:hover p {
+    color: #007bff;
+    text-decoration: underline;
+}
