@@ -5,12 +5,26 @@
     <meta charset="UTF-8" />
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17778783488"></script>
-
+    
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-        gtag('config', 'AW-17778783488');
+
+        gtag('config', 'AW-17778783488', {
+            'triggers': {
+                'C_ime3S0M_6HU': {
+                    'on': 'click',
+                    'selector': '.call-link',
+                    'vars': {
+                        'event_name': 'conversion',
+                        'value': 1.0,
+                        'currency': 'USD',
+                        'send_to': ['AW-17778783488/xv9ICMWtvKscEIDqyp1C']
+                    }
+                }
+            }
+        });
     </script>
 
     <!-- Google Tag Manager -->
@@ -26,15 +40,32 @@
     <!-- Event snippet for Click to call conversion page In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
     <script> function gtag_report_conversion(url) { var callback = function () { if (typeof (url) != 'undefined') { window.location = url; } }; gtag('event', 'conversion', { 'send_to': 'AW-17778783488/xv9ICMWtvKscEIDqyp1C', 'value': 1.0, 'currency': 'USD', 'event_callback': callback }); return false; } </script>
 
+        <!-- AMP Analytics -->
+        <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+
+        <!-- Google tag (gtag.js) -->
+          <amp-analytics type="gtag" data-credentials="include">
+            <script
+                type="application/json"> { "vars": { "gtag_id": "AW-17778783488", "config": { "AW-17778783488": { "groups": "default" } } }, "triggers": { } } </script>
+        </amp-analytics>
+
+
 
     <!-- Updated Content Security Policy to allow Font Awesome icons -->
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://www.googletagmanager.com; style-src-elem 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://www.googletagmanager.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; frame-src https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://td.doubleclick.net; connect-src 'self' https://www.google.com https://www.google.co.in https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://stats.g.doubleclick.net https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com;">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
     <title>HD Pro Cleaning — Professional Home & Office Cleaning Services</title>
 
-    <link rel="manifest" href="assets/icons/site.webmanifest">
+    <meta name="description"
+        content="HD Pro Cleaning provides expert home cleaning, kitchen deep cleaning, bathroom sanitization, office cleaning & AC deep cleaning services." />
+
+    <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#01c3cc">
+
 
     <!-- Mobile SEO -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,10 +92,13 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="assets/icons/site.webmanifest">
+
     <!--google verifiacation-->
     <meta name="google-site-verification" content="WDt_8y_5IgOE7JyOP0HiM1KskRcXXgdrF5NeDbAFTu8" />
     <meta name="keywords"
         content="home cleaning, kitchen cleaning, bathroom sanitization, office cleaning, deep cleaning, AC cleaning, professional cleaning services" />
+    <meta name="author" content="HDProCleaning" />
 
 
     <!-- OG Tags -->
@@ -87,6 +121,12 @@
     <meta name="twitter:image" content="https://hdproclean.us/assets/logo/main_logo.png">
     <meta name="twitter:image:alt" content="HDProCleaning Logo">
 
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://hdproclean.us/">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -564,9 +604,8 @@
                     </div>
                     <div>
                         <h4>Call Us</h4>
-
-                        <a href="tel:+17183600226" class="f-contact-items"
-                            onclick="return gtag_report_conversion('tel:+17183600226');">
+                    
+                        <a href="tel:+17183600226" class="f-contact-items" onclick="return gtag_report_conversion('tel:+17183600226');">
                             +1 718-360-0226
                         </a>
                     </div>
@@ -696,8 +735,7 @@
                 <h4 class="footer-heading">Get In Touch</h4>
                 <ul class="footer-contact-list">
                     <li>
-                        <a href="tel:+17183600226" class="f-contact-item"
-                            onclick="return gtag_report_conversion('tel:+17183600226');">
+                        <a href="tel:+17183600226" class="f-contact-item">
                             <span class="f-contact-icon"><i class="fa-solid fa-phone"></i></span>
                             <span><strong>Call Us</strong>+1 718-360-0226</span>
                         </a>
