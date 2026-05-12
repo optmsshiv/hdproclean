@@ -16,7 +16,7 @@
 
     <!-- Updated Content Security Policy to allow Font Awesome icons -->
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://www.googletagmanager.com; style-src-elem 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://www.googletagmanager.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; frame-src https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://td.doubleclick.net; connect-src 'self' https://www.google.com https://www.google.co.in https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://stats.g.doubleclick.net https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com;">
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://googletagmanager.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; frame-src https://www.google.com https://www.gstatic.com https://www.googletagmanager.com; connect-src 'self' https://www.google.com https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://stats.g.doubleclick.net;">
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -626,7 +626,106 @@
 
     <!-- FOOTER -->
     <footer class="site-footer">
-        <p>© <span id="year"></span> HDProCleaning — Professional Cleaning Services</p>
+
+      <!-- Animated top border -->
+      <div class="footer-accent-bar"></div>
+
+      <!-- Decorative glows -->
+      <div class="footer-glow footer-glow--left"></div>
+      <div class="footer-glow footer-glow--right"></div>
+
+      <div class="footer-inner">
+
+        <!-- Col 1: Brand -->
+        <div class="footer-brand">
+          <div class="footer-logo-row">
+            <div class="footer-logo-wrap">
+              <img src="assets/logo/main_logo.png" alt="HD Pro Cleaning Logo" onerror="this.style.display='none'">
+            </div>
+            <div>
+              <p class="footer-name">HD PRO CLEANING</p>
+              <p class="footer-tagline">Air Duct Cleaning Specialists</p>
+            </div>
+          </div>
+          <p class="footer-about">
+            Trusted professionals delivering spotless results for homes and offices.
+            Fully insured, eco-friendly, and available 7 days a week.
+          </p>
+          <div class="footer-badges">
+            <span class="f-badge"><i class="fa-solid fa-shield-halved"></i> Fully Insured</span>
+            <span class="f-badge"><i class="fa-solid fa-leaf"></i> Eco-Friendly</span>
+            <span class="f-badge"><i class="fa-solid fa-star"></i> 5-Star Rated</span>
+          </div>
+          <div class="footer-socials">
+            <a href="#" class="f-social" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="f-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="f-social" aria-label="Google"><i class="fa-brands fa-google"></i></a>
+            <a href="#" class="f-social" aria-label="Yelp"><i class="fa-brands fa-yelp"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#home"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+            <li><a href="#about"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+            <li><a href="#services"><i class="fa-solid fa-chevron-right"></i> Services</a></li>
+            <li><a href="#testimonials"><i class="fa-solid fa-chevron-right"></i> Testimonials</a></li>
+            <li><a href="#contact"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Services -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Our Services</h4>
+          <ul class="footer-links">
+            <li><a href="#services"><i class="fa-solid fa-wind"></i> Air Duct Cleaning</a></li>
+            <li><a href="#services"><i class="fa-solid fa-temperature-half"></i> HVAC Contractor</a></li>
+            <li><a href="#services"><i class="fa-solid fa-fire-flame-curved"></i> Central Heating</a></li>
+            <li><a href="#services"><i class="fa-solid fa-house"></i> House Cleaning</a></li>
+            <li><a href="#services"><i class="fa-solid fa-building"></i> Office Cleaning</a></li>
+            <li><a href="#services"><i class="fa-solid fa-star"></i> Premium Deep Clean</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Get In Touch</h4>
+          <ul class="footer-contact-list">
+            <li>
+              <a href="tel:+17183600226" class="f-contact-item">
+                <span class="f-contact-icon"><i class="fa-solid fa-phone"></i></span>
+                <span><strong>Call Us</strong>+1 718-360-0226</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:info@hdproclean.us" class="f-contact-item">
+                <span class="f-contact-icon"><i class="fa-solid fa-envelope"></i></span>
+                <span><strong>Email</strong>info@hdproclean.us</span>
+              </a>
+            </li>
+            <li class="f-contact-item">
+              <span class="f-contact-icon"><i class="fa-solid fa-clock"></i></span>
+              <span><strong>Working Hours</strong>Mon–Sun &nbsp;9:00 AM – 5:00 PM</span>
+            </li>
+          </ul>
+          <a href="#contact" class="footer-cta">
+            <i class="fa-solid fa-calendar-check"></i> Book a Service
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Divider -->
+      <div class="footer-divider"></div>
+
+      <!-- Bottom bar -->
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> HDProCleaning. All rights reserved.</p>
+        <p class="footer-credits">Designed with <i class="fa-solid fa-heart" style="color:#01c3cc"></i> for clean spaces</p>
+      </div>
+
     </footer>
 
 
