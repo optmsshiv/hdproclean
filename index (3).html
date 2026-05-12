@@ -627,21 +627,15 @@
     <!-- FOOTER -->
     <footer class="site-footer">
 
-      <!-- Animated top border -->
-      <div class="footer-accent-bar"></div>
-
-      <!-- Decorative glows -->
-      <div class="footer-glow footer-glow--left"></div>
-      <div class="footer-glow footer-glow--right"></div>
+      <!-- Top accent line -->
+      <div class="footer-accent"></div>
 
       <div class="footer-inner">
 
         <!-- Col 1: Brand -->
         <div class="footer-brand">
           <div class="footer-logo-row">
-            <div class="footer-logo-wrap">
-              <img src="assets/logo/main_logo.png" alt="HD Pro Cleaning Logo" onerror="this.style.display='none'">
-            </div>
+            <img src="assets/logo/main_logo.png" alt="HD Pro Cleaning Logo" onerror="this.style.display='none'">
             <div>
               <p class="footer-name">HD PRO CLEANING</p>
               <p class="footer-tagline">Air Duct Cleaning Specialists</p>
@@ -655,12 +649,6 @@
             <span class="f-badge"><i class="fa-solid fa-shield-halved"></i> Fully Insured</span>
             <span class="f-badge"><i class="fa-solid fa-leaf"></i> Eco-Friendly</span>
             <span class="f-badge"><i class="fa-solid fa-star"></i> 5-Star Rated</span>
-          </div>
-          <div class="footer-socials">
-            <a href="#" class="f-social" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" class="f-social" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" class="f-social" aria-label="Google"><i class="fa-brands fa-google"></i></a>
-            <a href="#" class="f-social" aria-label="Yelp"><i class="fa-brands fa-yelp"></i></a>
           </div>
         </div>
 
@@ -717,16 +705,146 @@
 
       </div>
 
-      <!-- Divider -->
-      <div class="footer-divider"></div>
-
       <!-- Bottom bar -->
       <div class="footer-bottom">
-        <p>© <span id="year"></span> HDProCleaning. All rights reserved.</p>
+        <p>© <span id="year"></span> HDProCleaning — All rights reserved.</p>
         <p class="footer-credits">Designed with <i class="fa-solid fa-heart" style="color:#01c3cc"></i> for clean spaces</p>
       </div>
 
     </footer>
+
+    <style>
+      .site-footer {
+        font-family: 'DM Sans', 'Segoe UI', sans-serif;
+        background: #ffffff;
+        color: #3d6366;
+        position: relative;
+        overflow: hidden;
+      }
+      .site-footer::before {
+        content: '';
+        position: absolute; inset: 0; pointer-events: none;
+        background-image: radial-gradient(circle, rgba(1,195,204,0.07) 1px, transparent 1px);
+        background-size: 26px 26px;
+      }
+      .footer-accent {
+        height: 4px;
+        background: linear-gradient(90deg, #01c3cc, #009ea6, #00e5ff, #01c3cc);
+        background-size: 200% 100%;
+        animation: footer-shimmer 3s linear infinite;
+      }
+      @keyframes footer-shimmer { to { background-position: 200% 0%; } }
+
+      .footer-inner {
+        position: relative; z-index: 1;
+        display: grid;
+        grid-template-columns: 1.6fr 1fr 1fr 1.3fr;
+        gap: 3rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 3.5rem 2rem 2.5rem;
+      }
+      .footer-logo-row {
+        display: flex; align-items: center; gap: 12px;
+        margin-bottom: 1rem;
+      }
+      .footer-logo-row img { height: 42px; width: auto; }
+      .footer-name {
+        font-size: 0.9rem; font-weight: 700; color: #0f2b2e;
+        letter-spacing: 0.04em;
+      }
+      .footer-tagline {
+        font-size: 0.67rem; font-weight: 500;
+        letter-spacing: 0.09em; text-transform: uppercase;
+        color: #009ea6; margin-top: 2px;
+      }
+      .footer-about {
+        font-size: 0.85rem; line-height: 1.7;
+        color: #7a9fa3; margin-bottom: 1.2rem;
+      }
+      .footer-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+      .f-badge {
+        display: inline-flex; align-items: center; gap: 5px;
+        font-size: 0.68rem; font-weight: 600; letter-spacing: 0.05em;
+        color: #009ea6; background: #e8fafb;
+        border: 1px solid rgba(1,195,204,0.22);
+        border-radius: 100px; padding: 4px 11px;
+      }
+      .f-badge i { font-size: 0.65rem; }
+
+      .footer-heading {
+        font-size: 0.72rem; font-weight: 700;
+        letter-spacing: 0.12em; text-transform: uppercase;
+        color: #0f2b2e; margin-bottom: 1.1rem;
+        position: relative; padding-bottom: 0.7rem;
+      }
+      .footer-heading::after {
+        content: '';
+        position: absolute; bottom: 0; left: 0;
+        width: 28px; height: 2px;
+        background: #01c3cc; border-radius: 2px;
+      }
+      .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+      .footer-links a {
+        display: flex; align-items: center; gap: 7px;
+        font-size: 0.85rem; color: #7a9fa3;
+        text-decoration: none;
+        transition: color 0.2s, transform 0.2s;
+      }
+      .footer-links a:hover { color: #01c3cc; transform: translateX(3px); }
+      .footer-links a i { font-size: 0.6rem; color: #01c3cc; flex-shrink: 0; }
+
+      .footer-contact-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 1.4rem; }
+      .f-contact-item {
+        display: flex; align-items: flex-start; gap: 10px;
+        text-decoration: none; color: #7a9fa3;
+        transition: color 0.2s;
+      }
+      .f-contact-item:hover { color: #01c3cc; }
+      .f-contact-icon {
+        width: 34px; height: 34px; border-radius: 9px;
+        background: #e8fafb;
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+      }
+      .f-contact-icon i { font-size: 0.82rem; color: #009ea6; }
+      .f-contact-item strong {
+        display: block; font-size: 0.7rem; font-weight: 600;
+        text-transform: uppercase; letter-spacing: 0.06em;
+        color: #0f2b2e; margin-bottom: 1px;
+      }
+      .f-contact-item span:last-child { font-size: 0.84rem; line-height: 1.5; }
+
+      .footer-cta {
+        display: inline-flex; align-items: center; gap: 8px;
+        background: linear-gradient(135deg, #01c3cc, #009ea6);
+        color: #fff; font-size: 0.85rem; font-weight: 600;
+        padding: 11px 22px; border-radius: 10px;
+        text-decoration: none;
+        box-shadow: 0 4px 16px rgba(1,195,204,0.28);
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .footer-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(1,195,204,0.38); }
+
+      .footer-bottom {
+        position: relative; z-index: 1;
+        display: flex; align-items: center;
+        justify-content: space-between; flex-wrap: wrap; gap: 8px;
+        border-top: 1px solid rgba(1,195,204,0.14);
+        max-width: 1200px; margin: 0 auto;
+        padding: 1.2rem 2rem;
+        font-size: 0.78rem; color: #7a9fa3;
+      }
+
+      @media (max-width: 900px) {
+        .footer-inner { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+        .footer-brand { grid-column: 1 / -1; }
+      }
+      @media (max-width: 560px) {
+        .footer-inner { grid-template-columns: 1fr; padding: 2.5rem 1.5rem 2rem; gap: 2rem; }
+        .footer-bottom { padding: 1rem 1.5rem; flex-direction: column; text-align: center; }
+      }
+    </style>
 
 
     <!-- BOOK NOW BUTTON -->

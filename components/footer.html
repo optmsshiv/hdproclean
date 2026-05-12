@@ -1,7 +1,289 @@
-<footer class="footer">
-    <p>© <span id="year"></span> HDProClean — Professional Cleaning Services</p>
-    <p>
-        <a href="tel:+919000000000">Call Us</a> •
-        <a href="mailto:info@hdproclean.com">Email</a>
+<!-- ═══════════════════════════════════════════════
+     HD Pro Cleaning — Enhanced Footer
+     Drop inside <body> before </body>
+     Requires Font Awesome 6 (already loaded in index.html)
+     ═══════════════════════════════════════════════ -->
+
+<footer class="site-footer">
+
+  <!-- Top accent line -->
+  <div class="footer-accent"></div>
+
+  <div class="footer-inner">
+
+    <!-- Col 1: Brand -->
+    <div class="footer-brand">
+      <div class="footer-logo-row">
+        <img src="assets/logo/main_logo.png" alt="HD Pro Cleaning Logo" onerror="this.style.display='none'">
+        <div>
+          <p class="footer-name">HD PRO CLEANING</p>
+          <p class="footer-tagline">Air Duct Cleaning Specialists</p>
+        </div>
+      </div>
+      <p class="footer-about">
+        Trusted professionals delivering spotless results for homes and offices.
+        Fully insured, eco-friendly, and available 7 days a week.
+      </p>
+      <div class="footer-badges">
+        <span class="badge"><i class="fa-solid fa-shield-halved"></i> Fully Insured</span>
+        <span class="badge"><i class="fa-solid fa-leaf"></i> Eco-Friendly</span>
+        <span class="badge"><i class="fa-solid fa-star"></i> 5-Star Rated</span>
+      </div>
+    </div>
+
+    <!-- Col 2: Quick Links -->
+    <div class="footer-col">
+      <h4 class="footer-heading">Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="#home"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+        <li><a href="#about"><i class="fa-solid fa-chevron-right"></i> About Us</a></li>
+        <li><a href="#services"><i class="fa-solid fa-chevron-right"></i> Services</a></li>
+        <li><a href="#testimonials"><i class="fa-solid fa-chevron-right"></i> Testimonials</a></li>
+        <li><a href="#contact"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+        <li><a href="thank-you.html"><i class="fa-solid fa-chevron-right"></i> Thank You</a></li>
+      </ul>
+    </div>
+
+    <!-- Col 3: Services -->
+    <div class="footer-col">
+      <h4 class="footer-heading">Our Services</h4>
+      <ul class="footer-links">
+        <li><a href="#services"><i class="fa-solid fa-wind"></i> Air Duct Cleaning</a></li>
+        <li><a href="#services"><i class="fa-solid fa-temperature-half"></i> HVAC Contractor</a></li>
+        <li><a href="#services"><i class="fa-solid fa-fire-flame-curved"></i> Central Heating</a></li>
+        <li><a href="#services"><i class="fa-solid fa-house"></i> House Cleaning</a></li>
+        <li><a href="#services"><i class="fa-solid fa-building"></i> Office Cleaning</a></li>
+        <li><a href="#services"><i class="fa-solid fa-star"></i> Premium Deep Clean</a></li>
+      </ul>
+    </div>
+
+    <!-- Col 4: Contact -->
+    <div class="footer-col">
+      <h4 class="footer-heading">Get In Touch</h4>
+      <ul class="footer-contact-list">
+        <li>
+          <a href="tel:+17183600226" class="contact-item">
+            <span class="contact-icon"><i class="fa-solid fa-phone"></i></span>
+            <span>
+              <strong>Call Us</strong>
+              +1 718-360-0226
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:info@hdproclean.us" class="contact-item">
+            <span class="contact-icon"><i class="fa-solid fa-envelope"></i></span>
+            <span>
+              <strong>Email</strong>
+              info@hdproclean.us
+            </span>
+          </a>
+        </li>
+        <li class="contact-item non-link">
+          <span class="contact-icon"><i class="fa-solid fa-clock"></i></span>
+          <span>
+            <strong>Working Hours</strong>
+            Mon–Sun &nbsp;9:00 AM – 5:00 PM
+          </span>
+        </li>
+      </ul>
+
+      <!-- CTA -->
+      <a href="#contact" class="footer-cta">
+        <i class="fa-solid fa-calendar-check"></i> Book a Service
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="footer-bottom">
+    <p>© <span id="year"></span> HDProCleaning — All rights reserved.</p>
+    <p class="footer-credits">
+      Designed with <i class="fa-solid fa-heart" style="color:var(--brand)"></i> for clean spaces
     </p>
+  </div>
+
 </footer>
+
+<style>
+  /* ── Footer Tokens (inherits from parent :root) ── */
+  .site-footer {
+    --brand:     #01c3cc;
+    --brand-dk:  #009ea6;
+    --brand-lt:  #e8fafb;
+    --ink:       #0f2b2e;
+    --ink-mid:   #3d6366;
+    --ink-soft:  #7a9fa3;
+    --border:    rgba(1,195,204,0.14);
+    font-family: 'DM Sans', 'Segoe UI', sans-serif;
+    background: #ffffff;
+    color: var(--ink-mid);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtle dot pattern background */
+  .site-footer::before {
+    content: '';
+    position: absolute; inset: 0; pointer-events: none;
+    background-image: radial-gradient(circle, rgba(1,195,204,0.07) 1px, transparent 1px);
+    background-size: 26px 26px;
+  }
+
+  /* Top accent gradient bar */
+  .footer-accent {
+    height: 4px;
+    background: linear-gradient(90deg, var(--brand), var(--brand-dk), #00e5ff, var(--brand));
+    background-size: 200% 100%;
+    animation: shimmer 3s linear infinite;
+  }
+  @keyframes shimmer { to { background-position: 200% 0%; } }
+
+  /* Inner grid */
+  .footer-inner {
+    position: relative; z-index: 1;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1.3fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3.5rem 2rem 2.5rem;
+  }
+
+  /* Brand column */
+  .footer-logo-row {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 1rem;
+  }
+  .footer-logo-row img { height: 42px; width: auto; }
+  .footer-name {
+    font-size: 0.9rem; font-weight: 700;
+    color: var(--ink); letter-spacing: 0.04em;
+    font-family: 'Playfair Display', 'Georgia', serif;
+  }
+  .footer-tagline {
+    font-size: 0.67rem; font-weight: 500;
+    letter-spacing: 0.09em; text-transform: uppercase;
+    color: var(--brand-dk); margin-top: 2px;
+  }
+  .footer-about {
+    font-size: 0.85rem; line-height: 1.7;
+    color: var(--ink-soft); margin-bottom: 1.2rem;
+  }
+
+  /* Badges */
+  .footer-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+  .footer-badges .badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 0.68rem; font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--brand-dk);
+    background: var(--brand-lt);
+    border: 1px solid rgba(1,195,204,0.22);
+    border-radius: 100px; padding: 4px 11px;
+  }
+  .footer-badges .badge i { font-size: 0.65rem; }
+
+  /* Column headings */
+  .footer-heading {
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink); margin-bottom: 1.1rem;
+    position: relative; padding-bottom: 0.7rem;
+  }
+  .footer-heading::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0;
+    width: 28px; height: 2px;
+    background: var(--brand);
+    border-radius: 2px;
+  }
+
+  /* Link lists */
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+  .footer-links a {
+    display: flex; align-items: center; gap: 7px;
+    font-size: 0.85rem; color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.2s, transform 0.2s;
+  }
+  .footer-links a:hover { color: var(--brand); transform: translateX(3px); }
+  .footer-links a i { font-size: 0.6rem; color: var(--brand); flex-shrink: 0; }
+
+  /* Contact list */
+  .footer-contact-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 1.4rem; }
+  .contact-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    text-decoration: none; color: var(--ink-soft);
+    transition: color 0.2s;
+  }
+  .contact-item:hover { color: var(--brand); }
+  .contact-item.non-link { cursor: default; }
+  .contact-icon {
+    width: 34px; height: 34px; border-radius: 9px;
+    background: var(--brand-lt);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-icon i { font-size: 0.82rem; color: var(--brand-dk); }
+  .contact-item strong {
+    display: block; font-size: 0.7rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--ink); margin-bottom: 1px;
+  }
+  .contact-item span:last-child { font-size: 0.84rem; line-height: 1.5; }
+
+  /* CTA button */
+  .footer-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(135deg, var(--brand), var(--brand-dk));
+    color: #fff;
+    font-size: 0.85rem; font-weight: 600;
+    padding: 11px 22px; border-radius: 10px;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(1,195,204,0.28);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .footer-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(1,195,204,0.38);
+  }
+  .footer-cta i { font-size: 0.85rem; }
+
+  /* Bottom bar */
+  .footer-bottom {
+    position: relative; z-index: 1;
+    display: flex; align-items: center;
+    justify-content: space-between; flex-wrap: wrap;
+    gap: 8px;
+    border-top: 1px solid var(--border);
+    max-width: 1200px; margin: 0 auto;
+    padding: 1.2rem 2rem;
+    font-size: 0.78rem; color: var(--ink-soft);
+  }
+  .footer-credits i { margin: 0 2px; }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .footer-inner {
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+    .footer-brand { grid-column: 1 / -1; }
+  }
+  @media (max-width: 560px) {
+    .footer-inner {
+      grid-template-columns: 1fr;
+      padding: 2.5rem 1.5rem 2rem;
+      gap: 2rem;
+    }
+    .footer-bottom { padding: 1rem 1.5rem; flex-direction: column; text-align: center; }
+  }
+</style>
+
+<script>
+  // Dynamic year (safe even if multiple footers are on page)
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+</script>
