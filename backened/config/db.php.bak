@@ -2,9 +2,9 @@
 
 header("Content-Type: application/json");
 
-ini_set('display_errors', 0);
-ini_set('display_startup_errors', 0);
-error_reporting(0);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 // Database credentials
 $host = "localhost";
@@ -17,8 +17,7 @@ $conn = new mysqli($host, $user, $pass, $db);
 
 // Check connection
 if ($conn->connect_error) {
-    echo json_encode(['status' => 'error', 'message' => 'Server error. Please try again later.']);
-    exit;
+    die("Connection failed: " . $conn->connect_error);
 }
 
 // Sanitize input
@@ -59,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $responseData = json_decode($verify);
 
-    if (!$responseData->success || $responseData->score < 0.5) {
+    if(!$responseData->success){
 
     echo json_encode([
         'status'=>'error',
@@ -98,10 +97,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
      }
     }
 
-    // Rate limit (1 request per 30 sec) — stored outside web root
-    $rateDir = sys_get_temp_dir() . '/hdproclean_limits';
-    if (!is_dir($rateDir)) mkdir($rateDir, 0700, true);
-    $cooldownFile = $rateDir . '/rate_' . md5($ip) . '.txt';
+    // Rate limit (1 request per 30 sec)
+    $cooldownFile = __DIR__.'/rate_'.$ip.'.txt';
 
     if(file_exists($cooldownFile)){
 
@@ -139,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Email limit per IP (max 5 emails)
 
-        $emailLimitFile = $rateDir . '/mail_limit_' . md5($ip) . '.txt';
+            $emailLimitFile = __DIR__.'/mail_limit_'.$ip.'.txt';
 
                 $count = file_exists($emailLimitFile)
                  ? (int)file_get_contents($emailLimitFile)
@@ -246,7 +243,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo json_encode(['status' => 'success', 'message' => 'Form submitted successfully']);
     }
     else {
-        echo json_encode(['status' => 'error', 'message' => 'Could not save your request. Please try again.']);
+        echo json_encode(['status' => 'error', 'message' => 'Database error: '.$stmt->error]);
     }
 
     $stmt->close();
