@@ -14,24 +14,19 @@
                     'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-PFRNVQHW');</script>
 
-    <!-- Updated Content Security Policy to allow Font Awesome icons -->
+    <!-- Content Security Policy -->
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://googletagmanager.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; frame-src https://www.google.com https://www.gstatic.com https://www.googletagmanager.com; connect-src 'self' https://www.google.com https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://stats.g.doubleclick.net;">
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; frame-src https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://td.doubleclick.net; connect-src 'self' https://www.google.com https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://stats.g.doubleclick.net https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com;">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>HD Pro Cleaning — Professional Home & Office Cleaning Services</title>
 
     <meta name="description"
-        content="HD Pro Cleaning provides expert home cleaning, kitchen deep cleaning, bathroom sanitization, office cleaning & AC deep cleaning services." />
+        content="HDProCleaning offers trusted & affordable home cleaning, kitchen cleaning, office cleaning, and deep cleaning services. Book now for a spotless space!">
 
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="assets/icons/site.webmanifest">
     <meta name="theme-color" content="#01c3cc">
-
-
-    <!-- Mobile SEO -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--seo meta tags-->
     <meta name="robots" content="index, follow">
@@ -41,27 +36,19 @@
     <meta name="author" content="HDProCleaning" />
     <meta name="language" content="English">
     <meta name="revisit-after" content="7 days" />
-    <meta name="rating" content="General" />
-    <meta name="distribution" content="Global" />
-    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="home cleaning, kitchen cleaning, bathroom sanitization, office cleaning, deep cleaning, AC cleaning, professional cleaning services" />
+    <meta name="google-site-verification" content="WDt_8y_5IgOE7JyOP0HiM1KskRcXXgdrF5NeDbAFTu8" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="HDProCleaning" />
 
-    <!--google search engine Tags-->
-    <link rel="canonical" href="https://hdproclean.us/" />
+    <!-- Canonical -->
+    <link rel="canonical" href="https://hdproclean.us/">
 
-    <!--fevicon-->
+    <!-- Favicons -->
     <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
-    <link rel="manifest" href="assets/icons/site.webmanifest">
-
-    <!--google verifiacation-->
-    <meta name="google-site-verification" content="WDt_8y_5IgOE7JyOP0HiM1KskRcXXgdrF5NeDbAFTu8" />
-    <meta name="keywords"
-        content="home cleaning, kitchen cleaning, bathroom sanitization, office cleaning, deep cleaning, AC cleaning, professional cleaning services" />
-    <meta name="author" content="HDProCleaning" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
 
 
     <!-- OG Tags -->
@@ -85,12 +72,6 @@
     <meta name="twitter:image:alt" content="HDProCleaning Logo">
 
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://hdproclean.us/">
-
-    <!-- Favicon -->
-    <link rel="icon" href="assets/icons/favicon.ico" type="image/x-icon">
-
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/modal.css">
@@ -105,22 +86,24 @@
       "image": "https://hdproclean.us/assets/logo/main_logo.png",
       "@id": "https://hdproclean.us/",
       "url": "https://hdproclean.us/",
-      "telephone": "+1 718-360-0226",
+      "telephone": "+1-718-360-0226",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "usa",
-        "addressLocality": "usa",
-        "addressRegion": "Your State",
-        "postalCode": "000000",
-        "addressCountry": "us"
+        "addressLocality": "New York",
+        "addressRegion": "NY",
+        "addressCountry": "US"
       },
       "description": "Professional Air Duct Cleaning, HVAC Cleaning, Home Cleaning & Office Cleaning Services.",
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "0.0000",
-        "longitude": "0.0000"
-      },
-      "openingHours": "Mo-Su 08:00-20:00"
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+          "opens": "09:00",
+          "closes": "17:00"
+        }
+      ],
+      "priceRange": "$$",
+      "areaServed": "New York"
     }
     </script>
 
@@ -178,9 +161,6 @@
             <h1>Spotless Spaces, Happy Faces</h1>
             <p>Your trusted partner for professional home and office cleaning services.</p>
             <a href="#contact" class="hero-btn">Get a Free Quote</a>
-            <!---
-            <h1>Professional Home & Office Cleaning</h1>
-            <p>Fast • Affordable • Trusted</p>-->
         </div>
     </section>
 
@@ -210,26 +190,6 @@
             </div>
         </div>
     </section>
-    <!---
-    <section class="how-we-work">
-        <div class="step">
-            <img src="/assets/img/IMG-20251123-WA0028.jpg" alt="">
-            <h3>Step 1: Inspection</h3>
-            <p>We inspect ducts thoroughly before cleaning.</p>
-        </div>
-    
-        <div class="step">
-            <img src="/assets/img/IMG-20251123-WA0022.jpg" alt="">
-            <h3>Step 2: Setup</h3>
-            <p>We attach our high-power vacuum system.</p>
-        </div>
-    
-        <div class="step">
-            <img src="/assets/img/IMG-20251123-WA0001.jpg" alt="">
-            <h3>Step 3: Deep Cleaning</h3>
-            <p>We clean all ducts for maximum airflow.</p>
-        </div>
-    </section> -->
 
     <!-- SERVICE VEHICLE SECTION -->
     <section class="service-vehicle">
@@ -241,48 +201,6 @@
         </div>
     </section>
 
-    <!--- HOW WE WORK SECTION 
-    <section class="how-we-work">
-        <h2 class="section-title">How We Work</h2>
-        <p class="section-subtitle">A simple, transparent and professional cleaning process</p>
-    
-        <div class="hww-container">
-    
-            // Step 1 
-            <div class="hww-card">
-                <img src="/assets/img/IMG-20251123-WA0028.jpg" alt="Inspection">
-                <div class="hww-content">
-                    <div class="hww-icon">🔍</div>
-                    <h3>Step 1: Inspection</h3>
-                    <p>We assess your duct system and identify dust, blockage and contamination to ensure the right cleaning
-                        process.</p>
-                </div>
-            </div>
-    
-            // Step 2 
-            <div class="hww-card">
-                <img src="/assets/img/IMG-20251123-WA0022.jpg" alt="Setup">
-                <div class="hww-content">
-                    <div class="hww-icon">⚙️</div>
-                    <h3>Step 2: Machine Setup</h3>
-                    <p>Our high-powered vacuum and agitation tools are connected to the ducts for a deep and thorough
-                        cleaning.</p>
-                </div>
-            </div>
-    
-            // Step 3 
-            <div class="hww-card">
-                <img src="/assets/img/IMG-20251123-WA0001.jpg" alt="Cleaning">
-                <div class="hww-content">
-                    <div class="hww-icon">🧼</div>
-                    <h3>Step 3: Complete Duct Cleaning</h3>
-                    <p>We remove dust, allergens and debris from every corner of your ducts to improve airflow and air
-                        quality.</p>
-                </div>
-            </div>
-    
-        </div>
-    </section> -->
 
     <!--how we work premium -->
     <section class="premium-hww">
@@ -408,7 +326,9 @@
                     <div class="flip-back">
                         <h3>Premium Deep Cleaning</h3>
                         <p>Includes full AC dismantle & jet wash.</p>
-                        <button class="view-details" data-open-modal>Book Now</button>
+                        <button class="view-details"
+                            data-title="Premium Deep Cleaning"
+                            data-desc="Our Premium Deep Cleaning includes full AC dismantle & jet wash, deep sanitization, coil cleaning, blower wash, antibacterial treatment, and a complete quality check — using professional-grade tools for the best results.">Book Now</button>
                     </div>
                 </div>
             </div>
@@ -463,34 +383,17 @@
         </div>
     </section>
 
-    <!-- CLIENTS 
-    <section id="clients" class="section">
-        <h2>Our Clients</h2>
 
-        <div class="logo-carousel">
-            <div class="logo-track">
-                <img loading="lazy" src="assets/img/logo1.png" alt="Client Logo">
-                <img loading="lazy" src="assets/img/logo2.png" alt="Client Logo">
-                <img loading="lazy" src="assets/img/logo3.png" alt="Client Logo">
-                <img loading="lazy" src="assets/img/logo4.png" alt="Client Logo">
-                <img loading="lazy" src="assets/img/logo5.png" alt="Client Logo">
-            </div>
-        </div>
-    </section>-->
-
-    <!--form secion -->
+    <!--form section -->
     <section id="contact" class="contact-section light">
         <div class="contact-wrapper">
 
             <!-- Left: Form -->
-            <div class="contact-form" id="contact">
+            <div class="contact-form">
                 <h2>Get In Touch</h2>
                 <p>Fill out the form and our team will contact you shortly.</p>
-                <!-- Form 
-                <form method="POST" id="contactForm" action="/backened/config/db.php"> 
-                    <input type="hidden" name="form_type" value="contact">
-                    -->
                 <form method="POST" id="contactForm">
+                    <input type="hidden" name="form_type" value="contact">
                     <input type="text" name="website" style="display:none">
 
                     <input type="hidden" name="form_token" value="21d57f3fa8fac7f2b28bd4e6dad2a331">
@@ -631,7 +534,7 @@
 
 
     <!-- BOOK NOW BUTTON -->
-    <a href="#contact" id="contact" class="book-now">Get a quote</a>
+    <a href="#contact" id="bookNowBtn" class="book-now">Get a quote</a>
 
     <!-- CALL BUTTON -->
     <a href="tel:+1 718-360-0226" class="floating-call" aria-label="Call Us">
@@ -658,8 +561,7 @@
             <span class="popup-close" id="closeBooking">&times;</span>
             <h2>Book a Service</h2>
             <form id="bookingForm" method="POST">
-                <!-- Hidden fields 
-                <input type="hidden" name="form_type" value="booking"> -->
+                <input type="hidden" name="form_type" value="booking">
                 <input type="text" name="website" style="display:none">
 
                 <input type="hidden" name="form_token" value="21d57f3fa8fac7f2b28bd4e6dad2a331">
@@ -704,10 +606,12 @@
     </div>
 
     <!-- JS -->
-    <!-- Google reCAPTCHA v3-->
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Google reCAPTCHA v3 -->
     <script src="https://www.google.com/recaptcha/api.js?render=6Lfv4HgsAAAAABM3fO6ktCVZgPJyBvynkkpBaKtL"></script>
-
-    <!-- Then load custom script -->
+    <!-- Custom scripts -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/modal.js"></script>
     <script src="assets/js/form_select.js"></script>
