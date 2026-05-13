@@ -210,12 +210,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $reply->isSMTP();
                 $reply->Host       = 'smtp.gmail.com';
                 $reply->SMTPAuth   = true;
-                $reply->Username   = 'help.listmybusiness@gmail.com';
-                $reply->Password   = 'elei qeff snro dgcc';
+                $reply->Username   = 'cleanduct88@gmail.com';
+                $reply->Password   = 'xcll nhxm lnfn dciw';
                 $reply->SMTPSecure = 'tls';
                 $reply->Port       = 587;
 
-                $reply->setFrom('info@hdproclean.us', 'HDProClean');
+                $reply->setFrom('cleanduct88@gmail.com', 'HDProClean');
                 $reply->addAddress($email, $name);
 
                 $reply->isHTML(true);
