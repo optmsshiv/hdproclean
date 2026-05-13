@@ -172,13 +172,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $mail->isSMTP();
             $mail->Host       = 'smtp.gmail.com';
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'help.listmybusiness@gmail.com';
-            $mail->Password   = 'elei qeff snro dgcc';
+            $mail->Username   = 'cleanduct88@gmail.com';
+            $mail->Password   = 'xcll nhxm lnfn dciw';
             $mail->SMTPSecure = 'tls';
             $mail->Port       = 587;
 
             $mail->setFrom('no-reply@hdproclean.us', 'HDProClean');
-            $mail->addAddress('help.listmybusiness@gmail.com');
+            $mail->addAddress('cleanduct88@gmail.com', 'HDProClean');
 
             $mail->isHTML(true);
             $mail->Subject = "New Contact Submission  HDProClean";
