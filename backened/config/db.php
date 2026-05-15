@@ -40,7 +40,7 @@ function emailTemplate($title, $content) {
             </div>
 
             <div style='background:#f0f3f7;padding:15px;text-align:center;font-size:13px;color:#666;'>
-                © $year HD Pro Cleaning — Professional Cleaning Services
+                © $year HD Pro Cleaning &mdash; Professional Cleaning Services
             </div>
 
         </div>
@@ -150,6 +150,8 @@ function makeSMTP() {
     $m->Password   = 'xcll nhxm lnfn dciw';
     $m->SMTPSecure = 'tls';
     $m->Port       = 587;
+    $m->CharSet    = 'UTF-8';
+    $m->Encoding   = 'base64';
     return $m;
 }
 
@@ -159,7 +161,7 @@ try {
     $mail->setFrom('no-reply@hdproclean.us', 'HD Pro Cleaning');
     $mail->addAddress('cleanduct88@gmail.com', 'HD Pro Cleaning');
     $mail->isHTML(true);
-    $mail->Subject = "New Submission — HD Pro Cleaning";
+    $mail->Subject = "New Submission - HD Pro Cleaning";
     $mail->Body    = emailTemplate(
         "New {$form_type} Request",
         "<strong>Name:</strong> {$name}<br>
@@ -181,7 +183,7 @@ if (!empty($email)) {
         $reply->addReplyTo('cleanduct88@gmail.com', 'HD Pro Cleaning');
         $reply->addAddress($email, $name);
         $reply->isHTML(true);
-        $reply->Subject = "We Received Your Request — HD Pro Cleaning";
+        $reply->Subject = "We Received Your Request - HD Pro Cleaning";
         $reply->Body    = emailTemplate(
             "Thank You for Contacting HD Pro Cleaning",
             "Hi <strong>{$name}</strong>,<br><br>
@@ -190,7 +192,7 @@ if (!empty($email)) {
              📞 Phone: {$phone}<br>
              🛠️ Service: {$service_type}<br><br>
              If you need immediate assistance, feel free to call us directly at <strong>+1 718-360-0226</strong>.<br><br>
-             — HD Pro Cleaning Support Team<br>
+             &mdash; HD Pro Cleaning Support Team<br>
              <a href='https://hdproclean.us' style='color:#01c3cc;'>hdproclean.us</a>"
         );
         $reply->send();

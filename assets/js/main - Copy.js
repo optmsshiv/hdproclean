@@ -122,17 +122,15 @@ if (typeof gsap !== "undefined") {
     duration: 0.7,
     ease: "power2.out",
   });
+  
 
-
-  // logo track — only animate if element exists
-  if (document.querySelector(".logo-track")) {
-    gsap.to(".logo-track", {
-      repeat: -1,
-      xPercent: -50,
-      ease: "none",
-      duration: 18,
-    });
-  }
+  // logo track speed little bounce
+  gsap.to(".logo-track", {
+    repeat: -1,
+    xPercent: -50,
+    ease: "none",
+    duration: 18,
+  });
 }
 
 /* ---------- TESTIMONIAL SLIDER ---------- */
