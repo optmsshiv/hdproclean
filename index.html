@@ -15,22 +15,22 @@
     </script>
 
 
-        <!-- Google Tag Manager -->
-        <script>(function (w, d, s, l, i) {
-                w[l] = w[l] || []; w[l].push({
-                    'gtm.start':
-                        new Date().getTime(), event: 'gtm.js'
-                }); var f = d.getElementsByTagName(s)[0],
-                    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                        'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-            })(window, document, 'script', 'dataLayer', 'GTM-WN5QVGM8');</script>
-        <!-- End Google Tag Manager -->
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WN5QVGM8');</script>
+    <!-- End Google Tag Manager -->
 
-        <script>
-            gtag('config', 'AW-17778783488/HCuyCP2z-s8bEIDqyp1C', {
-                'phone_conversion_number': '(718) 360-0226'
-            });
-        </script>
+    <script>
+        gtag('config', 'AW-17778783488/HCuyCP2z-s8bEIDqyp1C', {
+            'phone_conversion_number': '(718) 360-0226'
+        });
+    </script>
 
 
     <!-- Event snippet for Click to call conversion page In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
@@ -112,22 +112,24 @@
       "image": "https://hdproclean.us/assets/logo/main_logo.png",
       "@id": "https://hdproclean.us/",
       "url": "https://hdproclean.us/",
-      "telephone": "+1 718-360-0226",
+      "telephone": "+17183600226",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "usa",
-        "addressLocality": "usa",
-        "addressRegion": "Your State",
-        "postalCode": "000000",
-        "addressCountry": "us"
+        "addressLocality": "New York",
+        "addressRegion": "NY",
+        "addressCountry": "US"
       },
       "description": "Professional Air Duct Cleaning, HVAC Cleaning, Home Cleaning & Office Cleaning Services.",
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "0.0000",
-        "longitude": "0.0000"
-      },
-      "openingHours": "Mo-Su 08:00-20:00"
+      "areaServed": "New York",
+      "priceRange": "$$",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+          "opens": "09:00",
+          "closes": "17:00"
+        }
+      ]
     }
     </script>
 
@@ -145,7 +147,7 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WN5QVGM8" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-   
+
     <!-- PRELOADER -->
     <div id="preloader">
         <div class="loader"></div>
@@ -218,7 +220,7 @@
             </div>
         </div>
     </section>
-   
+
     <!-- SERVICE VEHICLE SECTION -->
     <section class="service-vehicle">
         <h2>Our Professional Duct Cleaning Truck</h2>
@@ -229,7 +231,7 @@
         </div>
     </section>
 
-    
+
     <!--how we work premium -->
     <section class="premium-hww">
         <h2 class="section-title">How We Work</h2>
@@ -414,14 +416,11 @@
         <div class="contact-wrapper">
 
             <!-- Left: Form -->
-            <div class="contact-form" id="contact">
+            <div class="contact-form">
                 <h2>Get In Touch</h2>
                 <p>Fill out the form and our team will contact you shortly.</p>
-                <!-- Form 
-                <form method="POST" id="contactForm" action="/backened/config/db.php"> 
-                    <input type="hidden" name="form_type" value="contact">
-                    -->
                 <form method="POST" id="contactForm">
+                    <input type="hidden" name="form_type" value="contact">
                     <input type="text" name="website" style="display:none">
 
                     <input type="hidden" name="form_token" value="21d57f3fa8fac7f2b28bd4e6dad2a331">
@@ -664,7 +663,7 @@
 
 
     <!-- BOOK NOW BUTTON -->
-    <a href="#contact" id="contact" class="book-now">Get a quote</a>
+    <a href="#contact" id="bookNowBtn" class="book-now">Get a quote</a>
 
     <!-- CALL BUTTON -->
     <a href="tel:+17183600226" class="floating-call" aria-label="Call Us"
@@ -692,8 +691,7 @@
             <span class="popup-close" id="closeBooking">&times;</span>
             <h2>Book a Service</h2>
             <form id="bookingForm" method="POST">
-                <!-- Hidden fields 
-                <input type="hidden" name="form_type" value="booking"> -->
+                <input type="hidden" name="form_type" value="booking">
                 <input type="text" name="website" style="display:none">
 
                 <input type="hidden" name="form_token" value="21d57f3fa8fac7f2b28bd4e6dad2a331">
@@ -738,10 +736,16 @@
     </div>
 
     <!-- JS -->
-    <!-- Google reCAPTCHA v3-->
+    <!-- GSAP + ScrollTrigger (required for animations in main.js) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+
+    <!-- Google reCAPTCHA v3 -->
     <script src="https://www.google.com/recaptcha/api.js?render=6Lfv4HgsAAAAABM3fO6ktCVZgPJyBvynkkpBaKtL"></script>
 
-    <!-- Then load custom script -->
+    <!-- Custom scripts -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/modal.js"></script>
     <script src="assets/js/form_select.js"></script>
