@@ -10,11 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const bookingPopup = document.getElementById("bookingPopup");
   const closeBooking = document.getElementById("closeBooking");
   const bookingForm = document.getElementById("bookingForm");
-
-  // Guard: if core modal/booking elements are missing (e.g. service pages),
-  // stop here — prevents "Cannot read properties of null" crash
-  if (!bookingForm || !modal || !bookingPopup) return;
-
   const serviceField = bookingForm.querySelector('input[name="serviceType"]');
   const messageField = bookingForm.querySelector('textarea[name="message"]');
 
