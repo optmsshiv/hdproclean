@@ -1,0 +1,106 @@
+[
+  {
+    "slug": "air-duct-repair",
+    "title": "Air Duct Repair Services | HD Pro Cleaning",
+    "metaDescription": "Professional Air Duct Repair Services. Fix leaks, damage and poor airflow fast with HD Pro Cleaning's certified technicians.",
+    "metaKeywords": "air duct repair, duct repair service, leaking air ducts, HVAC duct repair, ductwork repair NYC",
+    "canonical": "https://hdproclean.us/pages/air-duct-repair.html",
+    "heroTitle": "Professional Air Duct Repair Services",
+    "heroSubtitle": "Fix Leaks, Damage & Poor Airflow Fast With Our Certified Technicians.",
+    "heroImage": "/assets/img/hvdac.jpg",
+    "introTitle": "Expert Air Duct Repair Solutions",
+    "introP1": "Damaged or leaking air ducts can cause your HVAC system to work overtime, driving up energy bills and reducing comfort throughout your home or business. Even small cracks, holes, or disconnected joints can lead to significant air loss.",
+    "introP2": "At HD Pro Cleaning, our certified technicians diagnose and repair all types of duct damage quickly and efficiently. We restore your system to peak performance using professional-grade materials and proven repair techniques.",
+    "galleryTitle": "Our Air Duct Repair Projects",
+    "galleryItems": [
+      { "title": "Leak Detection & Sealing", "desc": "We locate and seal every air leak using pressure testing and mastic sealant for a permanent fix." },
+      { "title": "Disconnected Duct Reconnection", "desc": "Separated joints and disconnected sections are properly reconnected and secured." },
+      { "title": "Crushed Duct Repair", "desc": "Collapsed or crushed flexible ducts are reshaped, repaired, or replaced as needed." },
+      { "title": "Duct Liner Replacement", "desc": "Deteriorated interior lining is stripped and replaced to restore airflow and air quality." },
+      { "title": "Insulation Repair", "desc": "Damaged duct insulation is repaired to prevent energy loss and condensation buildup." },
+      { "title": "Commercial Duct Repair", "desc": "Full-scale repair services for offices, retail spaces, and multi-unit commercial buildings." }
+    ],
+    "processTitle": "Our Air Duct Repair Process",
+    "processSubtitle": "A thorough diagnostic approach for lasting repairs",
+    "processSteps": [
+      { "icon": "🔍", "title": "Inspection", "desc": "Full system inspection to identify leaks, damage, and airflow restrictions." },
+      { "icon": "📋", "title": "Diagnosis", "desc": "We pinpoint every problem area and explain what repairs are needed before we start." },
+      { "icon": "🛠️", "title": "Repair", "desc": "All damage is repaired using professional materials — sealed, insulated, and secured." },
+      { "icon": "✔️", "title": "Testing", "desc": "Post-repair airflow testing confirms the system is performing at full efficiency." }
+    ],
+    "benefitsTitle": "Benefits of Professional Duct Repair",
+    "benefits": [
+      { "title": "Lower Energy Bills", "desc": "Sealed ducts stop conditioned air from escaping, reducing HVAC energy waste." },
+      { "title": "Consistent Comfort", "desc": "Repaired ducts restore balanced airflow and eliminate hot or cold spots." },
+      { "title": "Better Air Quality", "desc": "Sealed ducts prevent dust, mold spores, and pollutants from entering your air supply." },
+      { "title": "Longer HVAC Life", "desc": "Reducing strain on your system extends the life of your heating and cooling equipment." },
+      { "title": "Quieter Operation", "desc": "Loose ducts often cause rattling noises — repairs eliminate that immediately." },
+      { "title": "Code Compliance", "desc": "Professional repairs ensure your duct system meets local building code requirements." }
+    ],
+    "whyTitle": "Why Choose HD Pro Cleaning?",
+    "whyDesc": "Our technicians deliver fast, reliable air duct repairs backed by real diagnostic tools and professional-grade materials — keeping your home or business comfortable year-round.",
+    "whyPoints": ["Licensed & Fully Insured Technicians", "Accurate Leak Detection Equipment", "Residential & Commercial Services", "Eco-Friendly Sealants & Materials", "Available 7 Days a Week", "Transparent Pricing — No Hidden Fees"],
+    "faqs": [
+      { "q": "How do I know if my ducts need repair?", "a": "Signs include high energy bills, uneven temperatures, unusual noises, or visible damage to ductwork." },
+      { "q": "How long does duct repair take?", "a": "Most residential repairs are completed in a single visit, typically 2 to 4 hours." },
+      { "q": "Do you repair both flexible and rigid ducts?", "a": "Yes. We repair all duct types including flexible, sheet metal, and fiberboard systems." },
+      { "q": "Will you need to open walls or ceilings?", "a": "Most repairs are done through access panels or existing openings — wall access is rare and always discussed beforehand." }
+    ],
+    "ctaTitle": "Need Air Duct Repairs? Call Us Today.",
+    "ctaDesc": "Get a free assessment from HD Pro Cleaning's duct repair experts. Licensed, insured, and available 7 days a week.",
+    "ogTitle": "Professional Air Duct Repair Services",
+    "ogDesc": "Fix leaks, damage and poor airflow fast with HD Pro Cleaning's certified technicians."
+  }, 
+  {
+    "slug": "dryer-vent-repair",
+    "title": "Dryer Vent Repair Services | HD Pro Cleaning",
+    "metaDescription": "Professional Dryer Vent Repair Services. Fix damaged, crushed, or leaking dryer vents fast with HD Pro Cleaning's certified technicians.",
+    "metaKeywords": "dryer vent repair, dryer vent damage, fix dryer vent, dryer vent leak, dryer vent repair NYC",
+    "canonical": "https://hdproclean.us/pages/dryer-vent-repair.html",
+    "heroTitle": "Professional Dryer Vent Repair Services",
+    "heroSubtitle": "Fix Damaged, Crushed & Leaking Dryer Vents Safely & Fast.",
+    "heroImage": "/assets/img/hvdac.jpg",
+    "introTitle": "Reliable Dryer Vent Repair Solutions",
+    "introP1": "A damaged dryer vent is more than an inconvenience — it's a safety hazard. Crushed, disconnected, or leaking vents trap heat and moisture inside your walls, increase fire risk, and force your dryer to work harder with every cycle.",
+    "introP2": "HD Pro Cleaning's technicians diagnose and repair all types of dryer vent damage quickly and thoroughly. Whether it's a crushed section of duct, a disconnected joint, or a damaged exterior cap, we restore safe, efficient venting.",
+    "galleryTitle": "Our Dryer Vent Repair Work",
+    "galleryItems": [
+      { "title": "Crushed Duct Repair", "desc": "Crushed or kinked dryer duct sections are replaced to restore full, unrestricted airflow." },
+      { "title": "Disconnected Joint Repair", "desc": "Separated duct connections are rejoined, secured, and sealed against air and lint leakage." },
+      { "title": "Leaking Duct Sealing", "desc": "Leaking joints and seams are sealed to prevent moisture and lint from escaping into wall cavities." },
+      { "title": "Exterior Cap Repair", "desc": "Damaged or missing exterior vent caps are replaced to prevent pest entry and weather damage." },
+      { "title": "Code Compliance Repair", "desc": "Non-compliant vent materials (plastic or foil) are replaced with metal duct to meet safety codes." },
+      { "title": "Commercial Vent Repair", "desc": "Dryer vent repairs for laundromats, apartment buildings, and commercial laundry facilities." }
+    ],
+    "processTitle": "Our Dryer Vent Repair Process",
+    "processSubtitle": "Accurate diagnosis and lasting repairs",
+    "processSteps": [
+      { "icon": "🔍", "title": "Inspection", "desc": "We inspect the full vent run to identify all damage, restrictions, and safety concerns." },
+      { "icon": "📋", "title": "Diagnosis", "desc": "We explain exactly what needs to be repaired and why before any work begins." },
+      { "icon": "🛠️", "title": "Repair", "desc": "All damaged sections are repaired or replaced using code-compliant materials." },
+      { "icon": "✔️", "title": "Testing", "desc": "Airflow is tested after repairs to confirm the vent is operating safely and efficiently." }
+    ],
+    "benefitsTitle": "Benefits of Professional Vent Repair",
+    "benefits": [
+      { "title": "Fire Safety", "desc": "Properly vented dryers dramatically reduce the risk of lint-related fires." },
+      { "title": "Mold Prevention", "desc": "Sealed vents prevent moisture from leaking into walls and creating mold conditions." },
+      { "title": "Faster Drying", "desc": "Unrestricted airflow means clothes dry in one cycle, saving time and energy." },
+      { "title": "Lower Energy Bills", "desc": "An efficient vent means your dryer runs shorter cycles and uses less power." },
+      { "title": "Code Compliance", "desc": "Repairs using approved metal duct materials keep your system up to local safety codes." },
+      { "title": "Longer Dryer Life", "desc": "A properly vented dryer runs cooler and experiences far less mechanical wear." }
+    ],
+    "whyTitle": "Why Choose HD Pro Cleaning?",
+    "whyDesc": "We repair dryer vents right the first time — using code-compliant materials, proper sealing, and post-repair airflow testing for your safety.",
+    "whyPoints": ["Licensed & Fully Insured Technicians", "Code-Compliant Repair Materials", "Before & After Airflow Testing", "Residential & Commercial Services", "Available 7 Days a Week", "Transparent Pricing — No Hidden Fees"],
+    "faqs": [
+      { "q": "How do I know my dryer vent needs repair?", "a": "Signs include clothes not drying, the dryer overheating, a burning smell, or visible damage to vent sections." },
+      { "q": "Can you repair plastic or foil dryer vents?", "a": "We replace them. Plastic and foil vents are fire hazards — we upgrade to code-compliant metal duct." },
+      { "q": "How long does a repair take?", "a": "Most repairs are completed in 1 to 2 hours. Complex repairs involving wall access may take longer." },
+      { "q": "Do you repair commercial dryer vents?", "a": "Yes. We service laundromats, apartment laundry rooms, and commercial laundry facilities." }
+    ],
+    "ctaTitle": "Don't Ignore a Damaged Dryer Vent",
+    "ctaDesc": "Get a fast, professional dryer vent repair from HD Pro Cleaning. Licensed, insured, and available 7 days a week.",
+    "ogTitle": "Professional Dryer Vent Repair Services",
+    "ogDesc": "Fix damaged, crushed or leaking dryer vents fast with HD Pro Cleaning's certified technicians."
+  }
+]

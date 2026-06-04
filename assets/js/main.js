@@ -1,3 +1,68 @@
+/* ---------- NAVBAR INJECT ---------- */
+(function () {
+  const navPlaceholder = document.getElementById("navbar");
+  if (!navPlaceholder || navPlaceholder.children.length > 0) return;
+
+  fetch("/components/navbar.html")
+    .then(res => {
+      if (!res.ok) throw new Error("navbar.html not found");
+      return res.text();
+    })
+    .then(html => {
+      // Replace placeholder div with actual <nav> content
+      const temp = document.createElement("div");
+      temp.innerHTML = html;
+      const nav = temp.querySelector("nav") || temp.firstElementChild;
+      if (nav) {
+        // Copy id and classes from placeholder to nav
+        nav.id = "navbar";
+        navPlaceholder.replaceWith(nav);
+      }
+
+      // Re-init mobile menu after inject
+      const mobileMenuBtn = document.getElementById("mobileMenu");
+      const navLinksEl = document.querySelector(".nav-links");
+      if (mobileMenuBtn && navLinksEl) {
+        mobileMenuBtn.addEventListener("click", () => {
+          navLinksEl.classList.toggle("show");
+          const expanded = mobileMenuBtn.getAttribute("aria-expanded") === "true";
+          mobileMenuBtn.setAttribute("aria-expanded", !expanded);
+        });
+      }
+
+      // Re-init dropdown toggles for mobile after inject
+      document.querySelectorAll('.has-dropdown > a, .has-submenu > a').forEach(link => {
+        link.addEventListener('click', function (e) {
+          if (window.innerWidth <= 900) {
+            e.preventDefault();
+            const parent = this.parentElement;
+            const isOpen = parent.classList.contains('open');
+            parent.parentElement.querySelectorAll(':scope > li.open').forEach(li => {
+              if (li !== parent) {
+                li.querySelectorAll('.open').forEach(n => n.classList.remove('open'));
+                li.classList.remove('open');
+              }
+            });
+            if (isOpen) {
+              parent.querySelectorAll('.open').forEach(n => n.classList.remove('open'));
+              parent.classList.remove('open');
+            } else {
+              parent.classList.add('open');
+            }
+          }
+        });
+      });
+
+      // Mark active nav link based on current page
+      const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
+      document.querySelectorAll(".nav-links a").forEach(a => {
+        const linkPath = new URL(a.href, window.location.origin).pathname.replace(/\/$/, "");
+        if (linkPath === currentPath) a.classList.add("active");
+      });
+    })
+    .catch(err => console.warn("Navbar inject failed:", err));
+})();
+
 /* ---------- PRELOADER ---------- */
 window.addEventListener("load", () => {
   const pre = document.getElementById("preloader");
@@ -77,6 +142,54 @@ window.addEventListener("scroll", () => {
     gsap.to(navbar, { padding: "1.1rem 2rem", duration: 0.25 });
   }
 }); ---------- */
+
+/* ---------- MOBILE DROPDOWN TOGGLE ---------- */
+document.querySelectorAll('.has-dropdown > a, .has-submenu > a').forEach(link => {
+  link.addEventListener('click', function (e) {
+    if (window.innerWidth <= 900) {
+      e.preventDefault();
+      const parent = this.parentElement;
+      const isOpen = parent.classList.contains('open');
+
+      // Close all siblings and their nested open children
+      parent.parentElement.querySelectorAll(':scope > li.open').forEach(li => {
+        if (li !== parent) {
+          li.querySelectorAll('.open').forEach(n => n.classList.remove('open'));
+          li.classList.remove('open');
+        }
+      });
+
+      // Toggle current — if closing, clear its nested open children too
+      if (isOpen) {
+        parent.querySelectorAll('.open').forEach(n => n.classList.remove('open'));
+        parent.classList.remove('open');
+      } else {
+        parent.classList.add('open');
+      }
+    }
+  });
+});
+
+// Close dropdowns when clicking outside (desktop)
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.has-dropdown')) {
+    document.querySelectorAll('.has-dropdown.open, .has-submenu.open').forEach(el => {
+      el.classList.remove('open');
+    });
+  }
+});
+
+// Close dropdowns on mobile menu close
+if (mobileMenu && navLinks) {
+  mobileMenu.addEventListener('click', () => {
+    // Reset all open dropdowns when hamburger closes the menu
+    if (!navLinks.classList.contains('show')) {
+      document.querySelectorAll('.has-dropdown.open, .has-submenu.open').forEach(el => {
+        el.classList.remove('open');
+      });
+    }
+  });
+}
 
 /* ---------- NAVBAR SHRINK ON SCROLL ---------- */
 const navbar = document.getElementById("navbar");
