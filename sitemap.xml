@@ -1,56 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Home Page -->
+  <!-- ═══════════════════════════════════
+       MAIN PAGES
+  ════════════════════════════════════ -->
+
   <url>
     <loc>https://www.hdproclean.us/</loc>
-    <lastmod>2025-11-24</lastmod>
+    <lastmod>2025-06-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- About Section -->
   <url>
-    <loc>https://www.hdproclean.us/#about</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Services Section -->
-  <url>
-    <loc>https://www.hdproclean.us/#services</loc>
-    <lastmod>2025-11-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Testimonials Section -->
-  <url>
-    <loc>https://www.hdproclean.us/#testimonials</loc>
-    <lastmod>2025-11-24</lastmod>
+    <loc>https://www.hdproclean.us/testimonials.html</loc>
+    <lastmod>2025-06-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Contact Section -->
   <url>
-    <loc>https://www.hdproclean.us/#contact</loc>
-    <lastmod>2025-11-24</lastmod>
+    <loc>https://www.hdproclean.us/contact.html</loc>
+    <lastmod>2025-06-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Optional: Services Detail Pages -->
+  <!-- ═══════════════════════════════════
+       AIR DUCT SERVICES
+  ════════════════════════════════════ -->
+
   <url>
-    <loc>https://www.hdproclean.us/air-duct-cleaning</loc>
-    <lastmod>2025-11-24</lastmod>
+    <loc>https://www.hdproclean.us/pages/air-duct-cleaning.html</loc>
+    <lastmod>2025-06-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+
   <url>
-    <loc>https://www.hdproclean.us/hvac-service</loc>
-    <lastmod>2025-11-24</lastmod>
+    <loc>https://www.hdproclean.us/pages/air-duct-repair.html</loc>
+    <lastmod>2025-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.hdproclean.us/pages/air-duct-installation.html</loc>
+    <lastmod>2025-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.hdproclean.us/pages/air-duct-replacement.html</loc>
+    <lastmod>2025-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.hdproclean.us/pages/air-duct-sealing.html</loc>
+    <lastmod>2025-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.hdproclean.us/pages/residential-air-duct-cleaning.html</loc>
+    <lastmod>2025-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.hdproclean.us/pages/commercial-air-duct-cleaning.html</loc>
+    <lastmod>2025-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════
+       DRYER VENT SERVICES
+  ════════════════════════════════════ -->
+
+  <url>
+    <loc>https://www.hdproclean.us/pages/dryer-vent-cleaning.html</loc>
+    <lastmod>2025-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.hdproclean.us/pages/dryer-vent-repair.html</loc>
+    <lastmod>2025-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.hdproclean.us/pages/dryer-vent-installation.html</loc>
+    <lastmod>2025-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.hdproclean.us/pages/dryer-vent-replacement.html</loc>
+    <lastmod>2025-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.hdproclean.us/pages/dryer-vent-rerouting.html</loc>
+    <lastmod>2025-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════
+       HVAC SERVICES
+  ════════════════════════════════════ -->
+
+  <url>
+    <loc>https://www.hdproclean.us/pages/hvac-cleaning.html</loc>
+    <lastmod>2025-06-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
