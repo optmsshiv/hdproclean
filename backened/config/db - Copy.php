@@ -108,23 +108,13 @@ $phone        = clean($_POST['phone']        ?? '', $conn);
 $email        = clean($_POST['email']        ?? '', $conn);
 $service_type = clean($_POST['serviceType']  ?? '', $conn);
 $message      = clean($_POST['message']      ?? '', $conn);
-$pref_date    = clean($_POST['preferredDate'] ?? '', $conn);
-$pref_time    = clean($_POST['preferredTime'] ?? '', $conn);
-
-// Basic format validation (expects YYYY-MM-DD and HH:MM from native date/time inputs)
-if ($pref_date !== '' && !preg_match('/^\d{4}-\d{2}-\d{2}$/', $pref_date)) {
-    $pref_date = '';
-}
-if ($pref_time !== '' && !preg_match('/^\d{2}:\d{2}$/', $pref_time)) {
-    $pref_time = '';
-}
 
 // ─── Insert into database ────────────────────────────────────────────────────
 $stmt = $conn->prepare(
-    "INSERT INTO contacts_bookings (form_type, name, phone, email, service_type, message, preferred_date, preferred_time)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+    "INSERT INTO contacts_bookings (form_type, name, phone, email, service_type, message)
+     VALUES (?, ?, ?, ?, ?, ?)"
 );
-$stmt->bind_param("ssssssss", $form_type, $name, $phone, $email, $service_type, $message, $pref_date, $pref_time);
+$stmt->bind_param("ssssss", $form_type, $name, $phone, $email, $service_type, $message);
 
 if (!$stmt->execute()) {
     echo json_encode(['status' => 'error', 'message' => 'Could not save your request. Please try again.']);
@@ -177,10 +167,8 @@ try {
         "<strong>Name:</strong> {$name}<br>
          <strong>Phone:</strong> {$phone}<br>
          <strong>Email:</strong> {$email}<br>
-         <strong>Service:</strong> {$service_type}<br>"
-         . (!empty($pref_date) ? "<strong>Preferred Date:</strong> {$pref_date}<br>" : "")
-         . (!empty($pref_time) ? "<strong>Preferred Time:</strong> {$pref_time}<br>" : "")
-         . "<br><strong>Message:</strong><br>{$message}"
+         <strong>Service:</strong> {$service_type}<br><br>
+         <strong>Message:</strong><br>{$message}"
     );
     $mail->send();
 } catch (Exception $e) {
@@ -202,10 +190,8 @@ if (!empty($email)) {
              Thank you for reaching out! We have received your request and our team will get in touch with you within <strong>24 hours</strong>.<br><br>
              <strong>Your Submitted Details:</strong><br>
              📞 Phone: {$phone}<br>
-             🛠️ Service: {$service_type}<br>"
-             . (!empty($pref_date) ? "📅 Preferred Date: {$pref_date}<br>" : "")
-             . (!empty($pref_time) ? "⏰ Preferred Time: {$pref_time}<br>" : "")
-             . "<br>If you need immediate assistance, feel free to call us directly at <strong>+1 718-360-0226</strong>.<br><br>
+             🛠️ Service: {$service_type}<br><br>
+             If you need immediate assistance, feel free to call us directly at <strong>+1 718-360-0226</strong>.<br><br>
              &mdash; HD Pro Cleaning Support Team<br>
              <a href='https://hdproclean.us' style='color:#01c3cc;'>hdproclean.us</a>"
         );
